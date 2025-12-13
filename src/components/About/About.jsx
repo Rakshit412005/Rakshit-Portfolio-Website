@@ -54,7 +54,7 @@ const About = () => {
               boxShadow: '0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec',
             }}
           >
-            DOWNLOAD CV
+            DOWNLOAD RESUME
           </a>
           
         </div>
