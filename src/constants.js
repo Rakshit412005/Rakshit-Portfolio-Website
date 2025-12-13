@@ -34,14 +34,14 @@ import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
 
 // Experience Section Logo's
-import webverseLogo from './assets/company_logo/webverse_logo.png';
-import agcLogo from './assets/company_logo/agc_logo.png';
+import IIITLogo from './assets/company_logo/IIIT_logo.png';
+import LiftoffLogo from './assets/company_logo/Liftoff_logo.png';
 import newtonschoolLogo from './assets/company_logo/newtonschool_logo.png';
 
 // Education Section Logo's
 import glaLogo from './assets/education_logo/gla_logo.png';
-import bsaLogo from './assets/education_logo/bsa_logo.png';
-import vpsLogo from './assets/education_logo/vps_logo.png';
+import SrmLogo from './assets/education_logo/SRM_logo.png';
+import GrmLogo from './assets/education_logo/GRM_logo.png';
 
 // Project Section Logo's
 import githubdetLogo from './assets/work_logo/github_det.png';
@@ -115,31 +115,29 @@ export const SkillsInfo = [
   export const experiences = [
     {
       id: 0,
-      img: webverseLogo,
+      img: IIITLogo,
       role: "Research and Development Intern",
       company: "IIIT Allahabad",
       date: "May 2025 - July 2025",
       desc: "Developed a real-time Edge-AI system on Raspberry Pi 5 with AI HAT+ (13 TOPS). This project integrated large language models (Phi-2, Gemma, Qwen) via llama.cpp for task-driven object detectionand supported multimodal interaction through live PiCamera feeds and Vosk-based voice commands. I also conducted performance benchmarking using nmon, strengthening my skills in building scalable,efficient systems. And was honored with award of Exellence for my outstanding contribution during the internship",
       skills: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "React JS",
-        "TypeScript",
-        "Node JS",
-        "Tailwind CSS",
-        "MongoDb",
-        "Redux",
-        " Next Js",
+        "Raspberry Pi Development",
+        "Embedded Systems",
+        "Open CV",
+        "Python",
+        "Matplotlib",
+        "LLM's",
+        "Machine Learning",
+        "COT"
       ],
     },
     {
       id: 1,
-      img: agcLogo,
-      role: "Fullstack Engineer",
-      company: "Agumentik Group of Companies",
-      date: "July 2023 - March 2024",
-      desc: "Contributed to innovative projects as a Fullstack Engineer, leading both frontend and backend development using technologies such as HTML, CSS, JavaScript, PHP, SQL, Bootstrap, and ReactJS. Worked closely with the team to deliver responsive, high-performance web applications and improve user experience through seamless integration of various technologies.",
+      img: LiftoffLogo,
+      role: "Technical Head",
+      company: "Liftoff Club (In College)",
+      date: "Sep 2024 - May 2025",
+      desc: "Worked on multiple full-stack web applications focused on improving user experience and functionality. I built a web application for image background removal using the Remove.bg API, making image editing faster and more efficient for users. I also contributed to a MERN stack project aimed at enhancing job and internship search, helping users discover opportunities more intelligently. I designed a responsive and user-friendly frontend using React.js, Redux, and modern UI practices, and developed backend services using Node.js, Express.js, and MongoDB to ensure efficient data handling and smooth API communication. I collaborated with a team of 5 members, gaining experience in teamwork, real-world development workflows, and scalable application design.",
       skills: [
         "ReactJS",
         "Redux",
@@ -147,40 +145,42 @@ export const SkillsInfo = [
         "Tailwind CSS",
         "HTML",
         "CSS",
-        "SQL",
+        "MongoDB",
+        "NodeJS",
+        "ExpressJS"
       ],
     },
-    {
-      id: 2,
-      img: newtonschoolLogo,
-      role: "Frontend Intern",
-      company: "Newton School",
-      date: "September 2021 - August 2022",
-      desc: "Worked as a Frontend Developer Intern, designing and implementing scalable UI components and responsive websites using HTML, CSS, JavaScript, Bootstrap, and Material UI. Collaborated with the design team to translate wireframes and prototypes from Figma into interactive, user-friendly web pages.",
-      skills: [
-        "HTML",
-        "CSS",
-        "Javascript",
-        "Bootstrap",
-        "Figma",
-        "Material UI",
-      ],
-    },
+    // {
+    //   id: 2,
+    //   img: newtonschoolLogo,
+    //   role: "Frontend Intern",
+    //   company: "Newton School",
+    //   date: "September 2021 - August 2022",
+    //   desc: "Worked as a Frontend Developer Intern, designing and implementing scalable UI components and responsive websites using HTML, CSS, JavaScript, Bootstrap, and Material UI. Collaborated with the design team to translate wireframes and prototypes from Figma into interactive, user-friendly web pages.",
+    //   skills: [
+    //     "HTML",
+    //     "CSS",
+    //     "Javascript",
+    //     "Bootstrap",
+    //     "Figma",
+    //     "Material UI",
+    //   ],
+    // },
   ];
   
   export const education = [
-    {
-      id: 0,
-      img: glaLogo,
-      school: "GLA University, Mathura",
-      date: "Sept 2022 - July 2024",
-      grade: "7.81 CGPA",
-      desc: "I have completed my Master's degree (MCA) in Computer Applications from GLA University, Mathura. During my time at GLA, I gained a strong foundation in programming, software development, and computer science principles. I have studied courses such as Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Web Development, and Software Engineering. I actively participated in various workshops and technical events, which enhanced my skills and knowledge. My experience at GLA University has been instrumental in shaping my technical abilities and professional growth.",
-      degree: "Master of Computer Applications - MCA",
-    },
+    // {
+    //   id: 0,
+    //   img: glaLogo,
+    //   school: "GLA University, Mathura",
+    //   date: "Sept 2022 - July 2024",
+    //   grade: "7.81 CGPA",
+    //   desc: "I have completed my Master's degree (MCA) in Computer Applications from GLA University, Mathura. During my time at GLA, I gained a strong foundation in programming, software development, and computer science principles. I have studied courses such as Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Web Development, and Software Engineering. I actively participated in various workshops and technical events, which enhanced my skills and knowledge. My experience at GLA University has been instrumental in shaping my technical abilities and professional growth.",
+    //   degree: "Master of Computer Applications - MCA",
+    // },
     {
       id: 1,
-      img: bsaLogo,
+      img: SrmLogo,
       school: "BSA College, Mathura",
       date: "Sept 2018 - Aug 2021",
       grade: "73.2%",
@@ -189,21 +189,21 @@ export const SkillsInfo = [
     },
     {
       id: 2,
-      img: vpsLogo,
-      school: "Vatsalya Public School Govardhan, Mathura",
-      date: "Apr 2017 - March 2018",
-      grade: "78%",
-      desc: "I completed my class 12 education from Vatsalya Public School, Govardhan, under the CBSE board, where I studied Physics, Chemistry, and Mathematics (PCM) with Computer Science.",
+      img: GrmLogo,
+      school: "GRM School, Bareilly, Uttar Pradesh",
+      date: "Apr 2022 - March 2023",
+      grade: "87%",
+      desc: "I completed my class 12th education from GRM School, Bareilly, under the CBSE board, where I studied Physics, Chemistry, and Mathematics (PCM) with Computer Science.",
       degree: "CBSE(XII) - PCM with Computer Science",
     },
     {
       id: 3,
-      img: vpsLogo,
-      school: "Vatsalya Public School Govardhan, Mathura",
-      date: "Apr 2015 - March 2016",
-      grade: "87.5%",
-      desc: "I completed my class 10 education from Vatsalya Public School, Govardhan, under the CBSE board, where I studied Science with Computer.",
-      degree: "CBSE(X), Science with Computer Application",
+      img: GrmLogo,
+      school: "GRM School, Bareilly, Uttar Pradesh",
+      date: "Apr 2020 - March 2021",
+      grade: "94%",
+      desc: "I completed my class 10th education from GRM School, Bareilly, under the CBSE board, where I studied Science with Computer.",
+      degree: "CBSE(X) - Science with Computer Application",
     },
   ];
   
