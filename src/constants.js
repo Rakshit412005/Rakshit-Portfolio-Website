@@ -36,10 +36,10 @@ import csharpLogo from './assets/tech_logo/csharp.png';
 // Experience Section Logo's
 import IIITLogo from './assets/company_logo/IIIT_logo.png';
 import LiftoffLogo from './assets/company_logo/Liftoff_logo.png';
-import newtonschoolLogo from './assets/company_logo/newtonschool_logo.png';
+
 
 // Education Section Logo's
-import glaLogo from './assets/education_logo/gla_logo.png';
+
 import SrmLogo from './assets/education_logo/SRM_logo.png';
 import GrmLogo from './assets/education_logo/GRM_logo.png';
 
@@ -181,11 +181,11 @@ export const SkillsInfo = [
     {
       id: 1,
       img: SrmLogo,
-      school: "BSA College, Mathura",
-      date: "Sept 2018 - Aug 2021",
-      grade: "73.2%",
-      desc: "I completed my Bachelor's degree in Computer Science (B.Sc.) from BSA College, Mathura. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development and Database Management Systems, I gained practical insights into the world of software development. My time at BSA College allowed me to work on projects that applied theoretical concepts to real-world problems.",
-      degree: "Bachelor of Science - BSC (Computer Science)",
+      school: "SRMIST University, Chennai",
+      date: "Aug 2023 - May 2027",
+      grade: "9.21 (CGPA till 4th sem)",
+      desc: "I am pursuing my Bachelor's degree in Computer Science (B.tech) from SRM Institute of Science and Technology, Chennai. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development, Database Management Systems and Machine Learning, I gained practical insights into the world of software development. My time at SRMIST University allowed me to work on projects that applied theoretical concepts to real-world problems.",
+      degree: "Bachelor of Technology - BTech (Computer Science Engineering)",
     },
     {
       id: 2,
