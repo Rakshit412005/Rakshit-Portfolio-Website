@@ -32,7 +32,7 @@ import netlifyLogo from './assets/tech_logo/netlify.png';
 import vercelLogo from './assets/tech_logo/vercel.png';
 import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
-
+import renderLogo from './assets/tech_logo/render.png';
 // Experience Section Logo's
 import IIITLogo from './assets/company_logo/IIIT_logo.png';
 import LiftoffLogo from './assets/company_logo/Liftoff_logo.png';
@@ -68,6 +68,8 @@ export const SkillsInfo = [
       { name: 'Redux', logo: reduxLogo },
       { name: 'Next JS', logo: nextjsLogo },
       { name: 'Tailwind CSS', logo: tailwindcssLogo },
+      { name: 'TypeScript', logo: typescriptLogo },
+
      // { name: 'GSAP', logo: gsapLogo },
      // { name: 'Material UI', logo: materialuiLogo },
      // { name: 'Bootstrap', logo: bootstrapLogo },
@@ -106,6 +108,8 @@ export const SkillsInfo = [
      // { name: 'Postman', logo: postmanLogo },
       { name: 'Compass', logo: mcLogo },
       { name: 'Vercel', logo: vercelLogo },
+      { name: 'Render', logo: renderLogo },
+      {name : 'Firebase', logo : firebaseLogo}
      // { name: 'Netlify', logo: netlifyLogo },
      // { name: 'Figma', logo: figmaLogo },
     ],
@@ -183,7 +187,7 @@ export const SkillsInfo = [
       img: SrmLogo,
       school: "SRMIST University, Chennai",
       date: "Aug 2023 - May 2027",
-      grade: "9.21 (CGPA till 4th sem)",
+      grade: "9.1 (CGPA till 5th sem)",
       desc: "I am pursuing my Bachelor's degree in Computer Science (B.tech) from SRM Institute of Science and Technology, Chennai. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development, Database Management Systems and Machine Learning, I gained practical insights into the world of software development. My time at SRMIST University allowed me to work on projects that applied theoretical concepts to real-world problems.",
       degree: "Bachelor of Technology - BTech (Computer Science Engineering)",
     },
