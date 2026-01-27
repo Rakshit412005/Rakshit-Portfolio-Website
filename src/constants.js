@@ -54,7 +54,8 @@ import cmLogo from "./assets/work_logo/cm.png";
 import imagesearchLogo from "./assets/work_logo/image_search.png";
 import removebgLogo from "./assets/work_logo/remove_bg.png";
 import twillerLogo from "./assets/work_logo/twiller.png";
-import chessLogo from './assets/work_logo/chess.png'
+import chessLogo from './assets/work_logo/chess.png';
+import restrauntReservationLogo from './assets/work_logo/restraunt_reservation.png'
 export const SkillsInfo = [
   {
     title: "Frontend",
@@ -289,10 +290,10 @@ export const projects = [
   },
   {
     id: 3,
-    title: "CS Prep",
+    title: "Restraunt Reservation",
     description:
       "A full-stack quiz-based platform designed for GATE/UGC NET students to practice previous year questions and create customized tests. The platform offers comprehensive profile stats and detailed results, helping students track and improve their preparation journey effectively.",
-    image: csprepLogo,
+    image: restrauntReservationLogo,
     tags: [
       "React JS",
       "Node.js",
@@ -302,59 +303,59 @@ export const projects = [
       "CSS",
       "JavaScript",
     ],
-    github: "https://github.com/codingmastr/CSPrep",
-    webapp: "https://csprep.netlify.app/",
+    github: "https://github.com/Rakshit412005/MERN_STACK_RESTAURANT_RESERVATION",
+    webapp: "https://github.com/Rakshit412005/MERN_STACK_RESTAURANT_RESERVATION",
   },
   
  
-  {
-    id: 4,
-    title: "Task Reminder Chrome Extension Tool",
-    description:
-      "A productivity-boosting Chrome extension designed to help users manage and remember their daily tasks. Built using JavaScript, it offers a simple interface with reminders and task notifications to keep users on track.",
-    image: taskremLogo,
-    tags: ["JavaScript", "Chrome Extension", "HTML", "CSS"],
-    github: "https://github.com/codingmastr/Task-Reminder-Tool",
-    webapp: "chrome://extensions/?id=kngheeibjnnidhfoomkpnbeghackheci",
-  },
-  {
-    id: 5,
-    title: "Webverse Digital",
-    description:
-      "The official website for Webverse Digital, a creative digital marketing agency. Built using HTML, CSS, and JavaScript, it features visually appealing animations and a clean design to showcase the agency's services.",
-    image: webverLogo,
-    tags: ["HTML", "CSS", "JavaScript", "Framer Motion"],
-    github: "https://github.com/codingmastr/Webverse-Digital",
-    webapp: "https://webversedigital.com/",
-  },
-  {
-    id: 6,
-    title: "Coding Master",
-    description:
-      "An ed-tech platform where users can access tech and coding-related blogs, notes, interview questions, e-books, and premium content with payment integration. Built with full-stack technologies for a seamless learning experience.",
-    image: cmLogo,
-    tags: ["React JS", "Node.js", "MongoDB", "Express", "Payment Integration"],
-    github: "https://codingmasterweb.in/",
-    webapp: "https://codingmasterweb.in/",
-  },
-  {
-    id: 7,
-    title: "Image Search App",
-    description:
-      "A React.js-based image search application that allows users to search and download high-quality images from the web. Built using external APIs to ensure a vast library of results for various queries.",
-    image: imagesearchLogo,
-    tags: ["React JS", "API", "Search Feature", "CSS", "Javascript"],
-    github: "https://github.com/codingmastr/Image-Search-App",
-    webapp: "https://imagsearch.netlify.app/",
-  },
-  {
-    id: 8,
-    title: "Image Background Remover",
-    description:
-      "An efficient background removal app built with React.js and API integration. Users can upload any image, remove the background, and download the transparent version for further use.",
-    image: removebgLogo,
-    tags: ["React JS", "API", "Image Processing", "HTML", "CSS", "Javascript"],
-    github: "https://github.com/codingmastr/Image-Background-Remover",
-    webapp: "https://removeyourbg.netlify.app/",
-  },
+  // {
+  //   id: 4,
+  //   title: "Task Reminder Chrome Extension Tool",
+  //   description:
+  //     "A productivity-boosting Chrome extension designed to help users manage and remember their daily tasks. Built using JavaScript, it offers a simple interface with reminders and task notifications to keep users on track.",
+  //   image: taskremLogo,
+  //   tags: ["JavaScript", "Chrome Extension", "HTML", "CSS"],
+  //   github: "https://github.com/codingmastr/Task-Reminder-Tool",
+  //   webapp: "chrome://extensions/?id=kngheeibjnnidhfoomkpnbeghackheci",
+  // },
+  // {
+  //   id: 5,
+  //   title: "Webverse Digital",
+  //   description:
+  //     "The official website for Webverse Digital, a creative digital marketing agency. Built using HTML, CSS, and JavaScript, it features visually appealing animations and a clean design to showcase the agency's services.",
+  //   image: webverLogo,
+  //   tags: ["HTML", "CSS", "JavaScript", "Framer Motion"],
+  //   github: "https://github.com/codingmastr/Webverse-Digital",
+  //   webapp: "https://webversedigital.com/",
+  // },
+  // {
+  //   id: 6,
+  //   title: "Coding Master",
+  //   description:
+  //     "An ed-tech platform where users can access tech and coding-related blogs, notes, interview questions, e-books, and premium content with payment integration. Built with full-stack technologies for a seamless learning experience.",
+  //   image: cmLogo,
+  //   tags: ["React JS", "Node.js", "MongoDB", "Express", "Payment Integration"],
+  //   github: "https://codingmasterweb.in/",
+  //   webapp: "https://codingmasterweb.in/",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Image Search App",
+  //   description:
+  //     "A React.js-based image search application that allows users to search and download high-quality images from the web. Built using external APIs to ensure a vast library of results for various queries.",
+  //   image: imagesearchLogo,
+  //   tags: ["React JS", "API", "Search Feature", "CSS", "Javascript"],
+  //   github: "https://github.com/codingmastr/Image-Search-App",
+  //   webapp: "https://imagsearch.netlify.app/",
+  // },
+  // {
+  //   id: 8,
+  //   title: "Image Background Remover",
+  //   description:
+  //     "An efficient background removal app built with React.js and API integration. Users can upload any image, remove the background, and download the transparent version for further use.",
+  //   image: removebgLogo,
+  //   tags: ["React JS", "API", "Image Processing", "HTML", "CSS", "Javascript"],
+  //   github: "https://github.com/codingmastr/Image-Background-Remover",
+  //   webapp: "https://removeyourbg.netlify.app/",
+  // },
 ];
