@@ -53,7 +53,8 @@ import webverLogo from "./assets/work_logo/web_dig.png";
 import cmLogo from "./assets/work_logo/cm.png";
 import imagesearchLogo from "./assets/work_logo/image_search.png";
 import removebgLogo from "./assets/work_logo/remove_bg.png";
-
+import twillerLogo from "./assets/work_logo/twiller.png";
+import chessLogo from './assets/work_logo/chess.png'
 export const SkillsInfo = [
   {
     title: "Frontend",
@@ -234,17 +235,60 @@ export const education = [
 export const projects = [
   {
     id: 0,
-    title: "GitHub Profile Detective",
+    title: "Twiller App",
     description:
-      "A powerful and user-friendly React.js application designed to uncover and showcase detailed GitHub profile information. Simply enter a GitHub username, and the app fetches comprehensive data, including profile stats, repositories, followers, and contributions. The intuitive interface ensures a seamless experience, making it a must-visit tool for developers and recruiters.",
-    image: githubdetLogo,
-    tags: ["HTML", "CSS", "JavaScript", "React JS", "API"],
+      "Twiller is a production-ready Twitter (X)–style web application built using Next.js, React, TypeScript, and Firebase, designed to simulate real-world social media workflows with strict business rules and security constraints. The platform supports OTP-based authentication, browser notifications triggered by keyword-based tweets, audio tweet recording and uploads with size, duration, and time-window restrictions, multi-language UI translation with OTP-verified switching, and subscription-based access control using Razorpay. It also tracks detailed user login history including browser, OS, device type, and IP address, and enforces conditional access based on device and time. This project demonstrates my ability to design scalable frontend architecture, integrate third-party services, and implement complex, rule-driven features in a real-world full-stack application..",
+    image: twillerLogo,
+    tags: [
+  "Next.js",
+  "MERN Stack",
+  "TypeScript",
+  "Firebase",
+  "Firestore",
+  "OTP Authentication",
+  "Razorpay",
+  "Browser Notification API",
+  "Multi-language (i18n)",
+  "Full Stack Web App"
+],
+
     github:
-      "https://github.com/codingmastr/GitHub-Profile-Search-App-Using-React-JS",
-    webapp: "https://githubprofiledetective.netlify.app/",
+      "https://github.com/Rakshit412005/twiller-2.0-main",
+    webapp: "https://twiller-2-0-main-v22g.vercel.app/",
+  },
+{
+  id: 1,
+  title: "Multiplayer Chess Game",
+  description:
+    "A web-based multiplayer chess game enabling real-time gameplay using Socket.io for bidirectional WebSocket communication and Chess.js for move validation and game logic. Features a role-based player system (white, black, spectator) with synchronized game state across clients using FEN notation. Built with Node.js, rendered using EJS, and styled with Tailwind CSS, providing an interactive drag-and-drop chessboard experience.",
+  image: chessLogo,
+  tags: [
+    "Node.js",
+    "Socket.io",
+    "Chess.js",
+    "WebSockets",
+    "EJS",
+    "Tailwind CSS",
+    "Multiplayer Game",
+    "Real-Time App"
+  ],
+  github: "https://github.com/Rakshit412005/Chess-game",
+  webapp: "https://chess-game-mwu9.onrender.com/",
+},
+
+
+  {
+    id: 2,
+    title: "Movie Recommendation App",
+    description:
+      "A React-based web application that provides movie recommendations based on different criteria, such as genres, user preferences, and popular trends. The intuitive design and smooth experience make it a go-to app for movie enthusiasts.",
+    image: movierecLogo,
+    tags: ["React JS", "API", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Rakshit412005/Movies-Zone",
+    webapp: "https://movies-zone-eight.vercel.app/",
   },
   {
-    id: 1,
+    id: 3,
     title: "CS Prep",
     description:
       "A full-stack quiz-based platform designed for GATE/UGC NET students to practice previous year questions and create customized tests. The platform offers comprehensive profile stats and detailed results, helping students track and improve their preparation journey effectively.",
@@ -261,26 +305,8 @@ export const projects = [
     github: "https://github.com/codingmastr/CSPrep",
     webapp: "https://csprep.netlify.app/",
   },
-  {
-    id: 2,
-    title: "Movie Recommendation App",
-    description:
-      "A React-based web application that provides movie recommendations based on different criteria, such as genres, user preferences, and popular trends. The intuitive design and smooth experience make it a go-to app for movie enthusiasts.",
-    image: movierecLogo,
-    tags: ["React JS", "API", "HTML", "CSS", "JavaScript"],
-    github: "https://github.com/codingmastr/Movie-Recommendation-App",
-    webapp: "https://movie-recommendation-app-jet.vercel.app/",
-  },
-  {
-    id: 3,
-    title: "Email Validator NPM Package",
-    description:
-      "An efficient and customizable NPM package for validating email addresses. Built using React.js and Node.js, it provides robust validation features to help developers ensure that email inputs meet required formats and standards.",
-    image: npmLogo,
-    tags: ["React JS", "Node.js", "NPM", "Validation"],
-    github: "https://github.com/codingmastr/cmtk-email-validator",
-    webapp: "https://www.npmjs.com/package/cmtk-email-validator",
-  },
+  
+ 
   {
     id: 4,
     title: "Task Reminder Chrome Extension Tool",
