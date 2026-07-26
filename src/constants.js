@@ -68,6 +68,8 @@ import cmLogo from "./assets/work_logo/cm.png";
 import imagesearchLogo from "./assets/work_logo/image_search.png";
 import removebgLogo from "./assets/work_logo/remove_bg.png";
 import twillerLogo from "./assets/work_logo/twiller.png";
+import stockMarketPredictorLogo from './assets/work_logo/stock_price_predictor.png';
+import aiInterviewerLogo from './assets/work_logo/ai-interviewer.png';
 import chessLogo from './assets/work_logo/chess.png';
 import restrauntReservationLogo from './assets/work_logo/restraunt_reservation.png'
 export const SkillsInfo = [
@@ -155,79 +157,92 @@ export const SkillsInfo = [
 
 export const experiences = [
   {
-  id: 0,
-  img: IIITLogo,
-  role: "Research and Development Intern",
-  company: "IIIT Allahabad",
-  date: "May 2025 - July 2025",
-  desc: [
-    "Developed an edge-AI system on Raspberry Pi 5 with AI HAT+ (13 TOPS) for task driven object detection using TFLite SSD-MobileNet and YOLOv11 models.",
-    "Integrated LLMs (Phi-2, Gemma, Qwen) via llama.cpp with Chain-of-Thought (CoT) prompting to reason about object suitability, increasing model accuracy from 52% to 84%.",
-    "Built a real-time PiCamera2 (OpenCV) + Vosk speech system for multimodal interaction and filtered bounding boxes using LLM responses.",
-    "Benchmarked system performance using nmon to evaluate efficiency and scalability.",
-    "Benchmarked LLMs across 6 metrics, monitored system performance with nmon and Matplotlib, and plotted comparative graphs, observed that Phi-2 reduced inference latency by ~20 seconds compared to Gemma and Qwen on Raspberry Pi 5."
-  ],
-  skills: [
-    "Edge AI",
-    "Raspberry Pi 5",
-    "AI HAT+",
-    "Embedded Systems",
-    "Computer Vision",
-    "OpenCV",
-    "Python",
-    "TensorFlow Lite",
-    "YOLOv11",
-    "SSD-MobileNet",
-    "llama.cpp",
-    "Vosk",
-    "PiCamera2",
-    "LLMs",
-    "CoT",
-    "Machine Learning",
-    "Benchmarking",
-    "Matplotlib"
-  ],
-},
+    id: 0,
+    img: IIITLogo,
+    role: "Research and Development Intern",
+    company: "IIIT Allahabad",
+    date: "May 2025 - July 2025",
+    desc: [
+      "Developed an edge-AI system on Raspberry Pi 5 with AI HAT+ (13 TOPS) for task driven object detection using TFLite SSD-MobileNet and YOLOv11 models.",
+      "Integrated LLMs (Phi-2, Gemma, Qwen) via llama.cpp with Chain-of-Thought (CoT) prompting to reason about object suitability, increasing model accuracy from 52% to 84%.",
+      "Built a real-time PiCamera2 (OpenCV) + Vosk speech system for multimodal interaction and filtered bounding boxes using LLM responses.",
+      "Benchmarked LLMs across 6 metrics, monitored system performance with nmon and Matplotlib, and plotted comparative graphs, observed that Phi-2 reduced inference latency by ~20 seconds compared to Gemma and Qwen on Raspberry Pi 5.",
+      "Received an Award of Excellence for outstanding contribution during the internship.",
+    ],
+    skills: [
+      "Edge AI",
+      "Raspberry Pi 5",
+      "AI HAT+",
+      "Embedded Systems",
+      "Computer Vision",
+      "OpenCV",
+      "Python",
+      "TensorFlow Lite",
+      "YOLOv11",
+      "SSD-MobileNet",
+      "llama.cpp",
+      "Vosk",
+      "PiCamera2",
+      "LLMs",
+      "CoT",
+      "Machine Learning",
+      "Benchmarking",
+      "Matplotlib",
+    ],
+  },
   {
     id: 1,
     img: elevanceSkillsLogo,
     role: "Full Stack Web Development Intern",
     company: "Elevance Skills",
     date: "Dec 2025 - June 2026",
-    desc: ["Developed a production-ready Twitter (X)–style web application (Twiller) implementing real-world, rule-driven features such as OTP-based authentication, browser notifications, subscription-based access control, multi-language support, and time-restricted actions. Built secure authentication flows, integrated Razorpay for subscription payments, implemented audio tweet uploads with size and duration constraints, and tracked detailed user login history (browser, OS, device, IP). This internship strengthened my ability to design scalable frontend architectures, handle complex business logic, and build user-centric full-stack applications.",],
+    desc: [
+      "Developed a full-stack social networking platform using Next.js (TypeScript), Node.js, Express.js, MongoDB, and Firebase Authentication, implementing secure authentication, Google Sign-In, password reset, login history, and device tracking.",
+      "Designed scalable content and media workflows by integrating Cloudinary for image, video, and audio storage, building REST APIs, backend validation, chronological feed generation, and secure media upload pipelines.",
+      "Implemented subscription-based access using Razorpay (Test Mode), developing backend payment verification, plan-based posting limits, multilingual UI support, and server-side enforcement of business rules.",
+    ],
     skills: [
-      "Full Stack Web Development",
-      "MERN Stack",
       "Next.js",
       "React.js",
       "TypeScript",
-      "Firebase Authentication",
-      "Firestore",
-      "Razorpay",
-      "OTP Authentication",
-      "Browser Notification API",
-      "Multi-language (i18n)",
-    ],
-  },
-  {
-    id: 2,
-    img: LiftoffLogo,
-    role: "Technical Head",
-    company: "Liftoff Club (In College)",
-    date: "Sep 2024 - May 2025",
-    desc: ["Worked on multiple full-stack web applications focused on improving user experience and functionality. I built a web application for image background removal using the Remove.bg API, making image editing faster and more efficient for users. I also contributed to a MERN stack project aimed at enhancing job and internship search, helping users discover opportunities more intelligently. I designed a responsive and user-friendly frontend using React.js, Redux, and modern UI practices, and developed backend services using Node.js, Express.js, and MongoDB to ensure efficient data handling and smooth API communication. I collaborated with a team of 5 members, gaining experience in teamwork, real-world development workflows, and scalable application design."],
-    skills: [
-      "ReactJS",
-      "Redux",
-      "JavaScript",
-      "Tailwind CSS",
-      "HTML",
-      "CSS",
+      "Node.js",
+      "Express.js",
       "MongoDB",
-      "NodeJS",
-      "ExpressJS",
+      "Firebase Authentication",
+      "Google Sign-In",
+      "REST APIs",
+      "Cloudinary",
+      "Razorpay",
+      "Password Reset",
+      "Device Tracking",
+      "Login History",
+      "Multilingual UI (i18n)",
     ],
   },
+{
+  id: 2,
+  img: LiftoffLogo,
+  role: "Technical Head",
+  company: "Liftoff Club (In College)",
+  date: "Sep 2024 - May 2025",
+  desc: [
+    "Led web design and development initiatives to enhance the club's digital presence and user engagement.",
+    "Mentored developers through code reviews, technical guidance, and best development practices.",
+    "Collaborated with cross-functional clubs to organize technical workshops, events, and learning sessions.",
+    "Promoted knowledge sharing and fostered technical skill development among club members."
+  ],
+  skills: [
+    "Leadership",
+    "Web Development",
+    "React.js",
+    "Node.js",
+    "Code Reviews",
+    "Mentoring",
+    "Technical Workshops",
+    "Team Collaboration",
+    "Event Management"
+  ],
+}
   // {
   //   id: 2,
   //   img: newtonschoolLogo,
@@ -286,31 +301,61 @@ export const education = [
 ];
 
 export const projects = [
-  {
-    id: 0,
-    title: "Twiller App",
-    description:
-      "Twiller is a production-ready Twitter (X)–style web application built using Next.js, React, TypeScript, and Firebase, designed to simulate real-world social media workflows with strict business rules and security constraints. The platform supports OTP-based authentication, browser notifications triggered by keyword-based tweets, audio tweet recording and uploads with size, duration, and time-window restrictions, multi-language UI translation with OTP-verified switching, and subscription-based access control using Razorpay. It also tracks detailed user login history including browser, OS, device type, and IP address, and enforces conditional access based on device and time. This project demonstrates my ability to design scalable frontend architecture, integrate third-party services, and implement complex, rule-driven features in a real-world full-stack application..",
-    image: twillerLogo,
-    tags: [
-  "Next.js",
-  "MERN Stack",
-  "TypeScript",
-  "Firebase",
-  "Firestore",
-  "OTP Authentication",
-  "Razorpay",
-  "Browser Notification API",
-  "Multi-language (i18n)",
-  "Full Stack Web App"
-],
+{
+  id: 0,
+  title: "AI Interviewer",
+  description: [
+    "Built a full-stack AI Interviewer platform using MERN, FastAPI, Socket.IO, Gemini, Whisper(NLP), and Chart.js, with secure authentication and automated coding and voice-based interviews across 3 interview levels and 20 technical domains.",
+    "Integrated deep-learning-based speech-to-text using Whisper and LLM-powered evaluation using Gemini to automate oral and coding assessment, delivering structured feedback with technical score, confidence score, and answer analysis for every response. reducing human effort by 100%.",
+    "Optimized the interview pipeline by redesigning AI architecture from O(N+1) Gemini calls to O(2) calls per interview where N is the number of questions, drastically reducing API usage and improving system efficiency."
+  ],
+  image: aiInterviewerLogo,
+  tags: [
+    "React.js",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "FastAPI",
+    "Socket.IO",
+    "Gemini",
+    "Whisper",
+    "Chart.js",
+    "JWT Authentication",
+    "REST APIs",
+    "AI",
+    "LLM"
+  ],
+  github: "https://github.com/Rakshit412005/AI-Interviewer",
+  webapp: "https://ai-interviewer-chi-six.vercel.app/",
+},
 
-    github:
-      "https://github.com/Rakshit412005/twiller-2.0-main",
-    webapp: "https://twiller-2-0-main-v22g.vercel.app/",
-  },
 {
   id: 1,
+  title: "Stock Price Predictor",
+  description: [
+    "Developed and deployed an AI-powered stock market prediction platform using Python, Streamlit, Scikit-learn, Plotly, Yahoo Finance API, VADER, and TextBlob, benchmarking 5 machine learning models using RMSE, MAE, and R².",
+    "Engineered 20+ technical and sentiment-driven features from 2 years of historical market data and 35+ financial news headlines to generate next-day stock price forecasts and investment insights.",
+    "Built an end-to-end analytics dashboard with real-time market visualization, model comparison, sentiment analysis, and investment simulation."
+  ],
+  image: stockMarketPredictorLogo,
+  tags: [
+    "Python",
+    "Streamlit",
+    "Scikit-learn",
+    "Plotly",
+    "Yahoo Finance API",
+    "VADER",
+    "TextBlob",
+    "Machine Learning",
+    "Sentiment Analysis",
+    "Data Visualization",
+    "Time Series Forecasting"
+  ],
+  github: "https://github.com/Rakshit412005/AI-Stock-Price-Predictor",
+  webapp: "https://ai-stock-price-predictor-412005.streamlit.app/",
+},
+{
+  id: 2,
   title: "Multiplayer Chess Game",
   description:
     "A web-based multiplayer chess game enabling real-time gameplay using Socket.io for bidirectional WebSocket communication and Chess.js for move validation and game logic. Features a role-based player system (white, black, spectator) with synchronized game state across clients using FEN notation. Built with Node.js, rendered using EJS, and styled with Tailwind CSS, providing an interactive drag-and-drop chessboard experience.",
@@ -331,7 +376,7 @@ export const projects = [
 
 
   {
-    id: 2,
+    id: 3,
     title: "Movie Recommendation App",
     description:
       "A React-based web application that provides movie recommendations based on different criteria, such as genres, user preferences, and popular trends. The intuitive design and smooth experience make it a go-to app for movie enthusiasts.",
@@ -340,8 +385,9 @@ export const projects = [
     github: "https://github.com/Rakshit412005/Movies-Zone",
     webapp: "https://movies-zone-eight.vercel.app/",
   },
+
   {
-    id: 3,
+    id: 4,
     title: "Restraunt Reservation",
     description:
       "A full-stack quiz-based platform designed for GATE/UGC NET students to practice previous year questions and create customized tests. The platform offers comprehensive profile stats and detailed results, helping students track and improve their preparation journey effectively.",
@@ -358,6 +404,7 @@ export const projects = [
     github: "https://github.com/Rakshit412005/MERN_STACK_RESTAURANT_RESERVATION",
     webapp: "https://github.com/Rakshit412005/MERN_STACK_RESTAURANT_RESERVATION",
   },
+
   
  
   // {

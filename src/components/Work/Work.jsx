@@ -46,9 +46,17 @@ const Work = () => {
               <h3 className="text-2xl font-bold text-white mb-2">
                 {project.title}
               </h3>
-              <p className="text-gray-500 mb-4 pt-4 line-clamp-3">
-                {project.description}
-              </p>
+              <div className="text-gray-500 mb-4 pt-4">
+                {Array.isArray(project.description) ? (
+                  <ul className="list-disc pl-5 space-y-1 line-clamp-3">
+                    {project.description.map((point, index) => (
+                      <li key={index}>{point}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="line-clamp-3">{project.description}</p>
+                )}
+              </div>
               <div className="mb-4">
                 {project.tags.map((tag, index) => (
                   <span
@@ -89,9 +97,17 @@ const Work = () => {
                 <h3 className="lg:text-3xl font-bold text-white mb-4 text-md">
                   {selectedProject.title}
                 </h3>
-                <p className="text-gray-400 mb-6 lg:text-base text-xs">
-                  {selectedProject.description}
-                </p>
+                <div className="text-gray-400 mb-6 lg:text-base text-xs">
+                  {Array.isArray(selectedProject.description) ? (
+                    <ul className="list-disc pl-5 space-y-2">
+                      {selectedProject.description.map((point, index) => (
+                        <li key={index}>{point}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{selectedProject.description}</p>
+                  )}
+                </div>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {selectedProject.tags.map((tag, index) => (
                     <span
