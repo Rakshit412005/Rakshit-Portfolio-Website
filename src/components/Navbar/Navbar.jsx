@@ -87,14 +87,7 @@ const Navbar = () => {
           >
             <FaLinkedin size={24} />
           </a>
-          <a
-            href="https://www.instagram.com/ig_rakshit07/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
-          >
-            <FaInstagram size={24} />
-          </a>
+          
           <a
             href="https://codolio.com/profile/rakshit07"
             target="_blank"
@@ -103,7 +96,16 @@ const Navbar = () => {
           >
             <FaCode size={24} />
           </a>
-            
+
+          <a
+            href="https://www.instagram.com/ig_rakshit07/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <FaInstagram size={24} />
+          </a>
+          
         </div>
 
         {/* Mobile Menu Icon */}

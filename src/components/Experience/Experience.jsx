@@ -68,11 +68,19 @@ const Experience = () => {
                     </h4>
                   </div>
                   {/* Date at the bottom */}
-                  <p className="text-sm text-gray-500 mt-2">{experience.date}</p>
+                  <p className="text-sm text-gray-500 mt-2">
+                    {experience.date}
+                  </p>
                 </div>
               </div>
 
-              <p className="mt-4 text-gray-400">{experience.desc}</p>
+              <div className="mt-4">
+                <ul className="list-disc pl-5 space-y-2 text-gray-400">
+                  {experience.desc.map((point, index) => (
+                    <li key={index}>{point}</li>
+                  ))}
+                </ul>
+              </div>
               <div className="mt-4">
                 <h5 className="font-medium text-white">Skills:</h5>
                 <ul className="flex flex-wrap mt-2">

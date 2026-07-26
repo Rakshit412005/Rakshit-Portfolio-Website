@@ -7,6 +7,7 @@ import reactjsLogo from "./assets/tech_logo/reactjs.png";
 import angularLogo from "./assets/tech_logo/angular.png";
 import reduxLogo from "./assets/tech_logo/redux.png";
 import nextjsLogo from "./assets/tech_logo/nextjs.png";
+import chartJS from "./assets/tech_logo/chartJS.png";
 import tailwindcssLogo from "./assets/tech_logo/tailwindcss.png";
 import gsapLogo from "./assets/tech_logo/gsap.png";
 import materialuiLogo from "./assets/tech_logo/materialui.png";
@@ -17,17 +18,30 @@ import expressjsLogo from "./assets/tech_logo/express.png";
 import mysqlLogo from "./assets/tech_logo/mysql.png";
 import mongodbLogo from "./assets/tech_logo/mongodb.png";
 import firebaseLogo from "./assets/tech_logo/firebase.png";
+import matPlotLibLogo from "./assets/tech_logo/matPlotLib.png";
 import cLogo from "./assets/tech_logo/c.png";
+import cloudinary from "./assets/tech_logo/cloudinary.png";
 import cppLogo from "./assets/tech_logo/cpp.png";
 import javaLogo from "./assets/tech_logo/java.png";
+import JWT from "./assets/tech_logo/jwt.png";
 import pythonLogo from "./assets/tech_logo/python.png";
 import typescriptLogo from "./assets/tech_logo/typescript.png";
 import gitLogo from "./assets/tech_logo/git.png";
+import dockerLogo from "./assets/tech_logo/docker.png";
+import fastAPI from "./assets/tech_logo/fastAPI.png";
+import tensorflowLogo from "./assets/tech_logo/tensorFlow.png";
+import scikitLearnLogo from "./assets/tech_logo/scikitLearn.png";
+import pyTorchLogo from "./assets/tech_logo/pytorch.png";
 import githubLogo from "./assets/tech_logo/github.png";
+import openCVLogo from "./assets/tech_logo/openCV.png";
+import raspberryPiLogo from "./assets/tech_logo/raspberryPi.png";
 import vscodeLogo from "./assets/tech_logo/vscode.png";
 import postmanLogo from "./assets/tech_logo/postman.png";
 import mcLogo from "./assets/tech_logo/mc.png";
+import sockitIO from "./assets/tech_logo/socketIO.png";
 import figmaLogo from "./assets/tech_logo/figma.png";
+import numPyLogo from "./assets/tech_logo/numPy.png";
+import pandasLogo from "./assets/tech_logo/pandas.png";
 import netlifyLogo from "./assets/tech_logo/netlify.png";
 import vercelLogo from "./assets/tech_logo/vercel.png";
 import postgreLogo from "./assets/tech_logo/postgre.png";
@@ -70,6 +84,8 @@ export const SkillsInfo = [
       { name: "Next JS", logo: nextjsLogo },
       { name: "Tailwind CSS", logo: tailwindcssLogo },
       { name: "TypeScript", logo: typescriptLogo },
+      { name: "Socket.IO", logo: sockitIO },
+      { name: "Chart.js", logo: chartJS },
 
       // { name: 'GSAP', logo: gsapLogo },
       // { name: 'Material UI', logo: materialuiLogo },
@@ -84,7 +100,10 @@ export const SkillsInfo = [
       { name: "Express JS", logo: expressjsLogo },
       { name: "MySQL", logo: mysqlLogo },
       { name: "MongoDB", logo: mongodbLogo },
-      // { name: 'Firebase', logo: firebaseLogo },
+      { name: "FastAPI", logo: fastAPI },
+      { name: "JWT", logo: JWT },
+      { name: "Cloudinary", logo: cloudinary },
+       { name: 'Firebase', logo: firebaseLogo },
       // { name: 'PostgreSQL', logo: postgreLogo },
     ],
   },
@@ -110,39 +129,72 @@ export const SkillsInfo = [
       { name: "Compass", logo: mcLogo },
       { name: "Vercel", logo: vercelLogo },
       { name: "Render", logo: renderLogo },
-      { name: "Firebase", logo: firebaseLogo },
+      {name: "Docker", logo: dockerLogo},
+      {name: "Raspberry Pi", logo: raspberryPiLogo},
+ 
       // { name: 'Netlify', logo: netlifyLogo },
       // { name: 'Figma', logo: figmaLogo },
     ],
   },
+  {
+    title: "AI/ML",
+    skills: [
+      { name: "Python", logo: pythonLogo },
+      { name: "NumPy", logo: numPyLogo },
+      {name: "Pandas", logo: pandasLogo},
+      {name: "Scikit-learn", logo: scikitLearnLogo},
+      {name: "OpenCV", logo: openCVLogo},
+      { name: "Matplotlib", logo: matPlotLibLogo},
+      { name: "TensorFlow", logo: tensorflowLogo },
+      {name: "PyTorch", logo: pyTorchLogo},
+      
+    ]
+
+  }
 ];
 
 export const experiences = [
   {
-    id: 0,
-    img: IIITLogo,
-    role: "Research and Development Intern",
-    company: "IIIT Allahabad",
-    date: "May 2025 - July 2025",
-    desc: "Developed a real-time Edge-AI system on Raspberry Pi 5 with AI HAT+ (13 TOPS). This project integrated large language models (Phi-2, Gemma, Qwen) via llama.cpp for task-driven object detectionand supported multimodal interaction through live PiCamera feeds and Vosk-based voice commands. I also conducted performance benchmarking using nmon, strengthening my skills in building scalable,efficient systems. And was honored with award of Exellence for my outstanding contribution during the internship",
-    skills: [
-      "Raspberry Pi Development",
-      "Embedded Systems",
-      "Open CV",
-      "Python",
-      "Matplotlib",
-      "LLM's",
-      "Machine Learning",
-      "COT",
-    ],
-  },
+  id: 0,
+  img: IIITLogo,
+  role: "Research and Development Intern",
+  company: "IIIT Allahabad",
+  date: "May 2025 - July 2025",
+  desc: [
+    "Developed a real-time Edge AI system on Raspberry Pi 5 with AI HAT+ (13 TOPS).",
+    "Integrated Phi-2, Gemma, and Qwen via llama.cpp for task-driven object detection.",
+    "Enabled multimodal interaction using live PiCamera feeds and Vosk-based voice commands.",
+    "Benchmarked system performance using nmon to evaluate efficiency and scalability.",
+    "Received an Award of Excellence for outstanding contribution during the internship."
+  ],
+  skills: [
+    "Edge AI",
+    "Raspberry Pi 5",
+    "AI HAT+",
+    "Embedded Systems",
+    "Computer Vision",
+    "OpenCV",
+    "Python",
+    "TensorFlow Lite",
+    "YOLOv11",
+    "SSD-MobileNet",
+    "llama.cpp",
+    "Vosk",
+    "PiCamera2",
+    "LLMs",
+    "CoT",
+    "Machine Learning",
+    "Benchmarking",
+    "Matplotlib"
+  ],
+},
   {
     id: 1,
     img: elevanceSkillsLogo,
     role: "Full Stack Web Development Intern",
     company: "Elevance Skills",
-    date: "Dec 2025 - Feb 2025",
-    desc: "Developed a production-ready Twitter (X)–style web application (Twiller) implementing real-world, rule-driven features such as OTP-based authentication, browser notifications, subscription-based access control, multi-language support, and time-restricted actions. Built secure authentication flows, integrated Razorpay for subscription payments, implemented audio tweet uploads with size and duration constraints, and tracked detailed user login history (browser, OS, device, IP). This internship strengthened my ability to design scalable frontend architectures, handle complex business logic, and build user-centric full-stack applications.",
+    date: "Dec 2025 - June 2026",
+    desc: ["Developed a production-ready Twitter (X)–style web application (Twiller) implementing real-world, rule-driven features such as OTP-based authentication, browser notifications, subscription-based access control, multi-language support, and time-restricted actions. Built secure authentication flows, integrated Razorpay for subscription payments, implemented audio tweet uploads with size and duration constraints, and tracked detailed user login history (browser, OS, device, IP). This internship strengthened my ability to design scalable frontend architectures, handle complex business logic, and build user-centric full-stack applications.",],
     skills: [
       "Full Stack Web Development",
       "MERN Stack",
