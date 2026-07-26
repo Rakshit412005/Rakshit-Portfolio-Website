@@ -161,11 +161,11 @@ export const experiences = [
   company: "IIIT Allahabad",
   date: "May 2025 - July 2025",
   desc: [
-    "Developed a real-time Edge AI system on Raspberry Pi 5 with AI HAT+ (13 TOPS).",
-    "Integrated Phi-2, Gemma, and Qwen via llama.cpp for task-driven object detection.",
-    "Enabled multimodal interaction using live PiCamera feeds and Vosk-based voice commands.",
+    "Developed an edge-AI system on Raspberry Pi 5 with AI HAT+ (13 TOPS) for task driven object detection using TFLite SSD-MobileNet and YOLOv11 models.",
+    "Integrated LLMs (Phi-2, Gemma, Qwen) via llama.cpp with Chain-of-Thought (CoT) prompting to reason about object suitability, increasing model accuracy from 52% to 84%.",
+    "Built a real-time PiCamera2 (OpenCV) + Vosk speech system for multimodal interaction and filtered bounding boxes using LLM responses.",
     "Benchmarked system performance using nmon to evaluate efficiency and scalability.",
-    "Received an Award of Excellence for outstanding contribution during the internship."
+    "Benchmarked LLMs across 6 metrics, monitored system performance with nmon and Matplotlib, and plotted comparative graphs, observed that Phi-2 reduced inference latency by ~20 seconds compared to Gemma and Qwen on Raspberry Pi 5."
   ],
   skills: [
     "Edge AI",
@@ -215,7 +215,7 @@ export const experiences = [
     role: "Technical Head",
     company: "Liftoff Club (In College)",
     date: "Sep 2024 - May 2025",
-    desc: "Worked on multiple full-stack web applications focused on improving user experience and functionality. I built a web application for image background removal using the Remove.bg API, making image editing faster and more efficient for users. I also contributed to a MERN stack project aimed at enhancing job and internship search, helping users discover opportunities more intelligently. I designed a responsive and user-friendly frontend using React.js, Redux, and modern UI practices, and developed backend services using Node.js, Express.js, and MongoDB to ensure efficient data handling and smooth API communication. I collaborated with a team of 5 members, gaining experience in teamwork, real-world development workflows, and scalable application design.",
+    desc: ["Worked on multiple full-stack web applications focused on improving user experience and functionality. I built a web application for image background removal using the Remove.bg API, making image editing faster and more efficient for users. I also contributed to a MERN stack project aimed at enhancing job and internship search, helping users discover opportunities more intelligently. I designed a responsive and user-friendly frontend using React.js, Redux, and modern UI practices, and developed backend services using Node.js, Express.js, and MongoDB to ensure efficient data handling and smooth API communication. I collaborated with a team of 5 members, gaining experience in teamwork, real-world development workflows, and scalable application design."],
     skills: [
       "ReactJS",
       "Redux",
