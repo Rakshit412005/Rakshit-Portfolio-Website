@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaGithub, FaLinkedin,FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin,FaInstagram,FaCode } from "react-icons/fa";
+import { SiLeetcode,SiGeeksforgeeks } from "react-icons/si";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,6 +95,15 @@ const Navbar = () => {
           >
             <FaInstagram size={24} />
           </a>
+          <a
+            href="https://codolio.com/profile/rakshit07"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-[#8245ec]"
+          >
+            <FaCode size={24} />
+          </a>
+            
         </div>
 
         {/* Mobile Menu Icon */}
