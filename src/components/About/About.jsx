@@ -212,17 +212,6 @@ const About = () => {
                 {/* Inner perimeter rim shadow */}
                 <div className="absolute inset-0 rounded-full border border-white/10 pointer-events-none" />
               </div>
-
-              {/* Technical Telemetry Badge on Profile */}
-              <div className="absolute -bottom-2 right-4 sm:right-8
-                bg-[#070518]/95 border border-purple-500/40
-                rounded-full px-3.5 py-1.5 shadow-2xl shadow-black/90
-                flex items-center gap-2 backdrop-blur-xl">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-[11px] font-mono font-medium text-slate-200">
-                  AI &bull; EDGE &bull; FULLSTACK
-                </span>
-              </div>
             </Tilt>
           </div>
         </div>
