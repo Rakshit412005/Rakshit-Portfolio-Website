@@ -1,66 +1,97 @@
-import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaCode } from "react-icons/fa";
 
 const Footer = () => {
-  // Smooth scroll function
   const handleScroll = (sectionId) => {
+    if (sectionId === "about") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const navHeight = 80;
+      const top = section.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
+  const navLinks = [
+    { name: "About",      id: "about" },
+    { name: "Skills",     id: "skills" },
+    { name: "Experience", id: "experience" },
+    { name: "Projects",   id: "work" },
+    { name: "Education",    id: "education" },
+    { name: "Achievements", id: "achievements" },
+    { name: "Contact",      id: "contact" },
+  ];
+
+  const socialLinks = [
+    { name: "GitHub",    href: "https://github.com/Rakshit412005",                   icon: <FaGithub size={16} />    },
+    { name: "LinkedIn",  href: "https://www.linkedin.com/in/rakshit-kumar07",         icon: <FaLinkedin size={16} />  },
+    { name: "Codolio",   href: "https://codolio.com/profile/rakshit07",               icon: <FaCode size={16} />      },
+    { name: "Instagram", href: "https://www.instagram.com/ig_rakshit07/",             icon: <FaInstagram size={16} /> },
+  ];
+
   return (
-    <footer className="text-white py-8 px-[12vw] md:px-[7vw] lg:px-[20vw]">
-      <div className="container mx-auto text-center">
-        {/* Name / Logo */}
-        <h2 className="text-xl font-semibold text-purple-500">Rakshit Kumar</h2>
+    <footer className="relative mt-20 border-t border-white/[0.06] bg-[#02000e]">
+      {/* Top ambient glow */}
+      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[600px] h-32 bg-purple-600/10 blur-[80px] pointer-events-none" />
 
-        {/* Navigation Links - Responsive */}
-        <nav className="flex flex-wrap justify-center space-x-4 sm:space-x-6 mt-4">
-          {[
-            { name: "About", id: "about" },
-            { name: "Skills", id: "skills" },
-            { name: "Experience", id: "experience" },
-            { name: "Projects", id: "work" },
-            { name: "Education", id: "education" },
-          ].map((item, index) => (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+
+          {/* Brand */}
+          <div className="flex flex-col items-center md:items-start space-y-1">
             <button
-              key={index}
-              onClick={() => handleScroll(item.id)}
-              className="hover:text-purple-500 text-sm sm:text-base my-1"
+              onClick={() => handleScroll("about")}
+              className="group text-xl font-bold tracking-tight hover:text-purple-300 transition-colors section-title"
+              aria-label="Scroll to top"
             >
-              {item.name}
+              <span className="text-cyan-400 font-mono group-hover:text-cyan-300 transition-colors">&lt;</span>
+              <span className="text-white font-display">Rakshit</span>
+              <span className="text-purple-400 font-mono mx-0.5">/</span>
+              <span className="text-white font-display">Kumar</span>
+              <span className="text-cyan-400 font-mono group-hover:text-cyan-300 transition-colors">&gt;</span>
             </button>
-          ))}
-        </nav>
+            <p className="font-mono text-[11px] text-slate-500">
+              {"// Systems, Edge-AI & Full-Stack Engineer"}
+            </p>
+          </div>
 
-        {/* Social Media Icons - Responsive */}
-        {/* <div className="flex flex-wrap justify-center space-x-4 mt-6">
-          {[
-           // { icon: <FaFacebook />, link: "https://www.facebook.com/tarun.kaushik.3511041/" },
-           // { icon: <FaTwitter />, link: "https://twitter.com/CodingMaster6?s=09" },
-           // { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/rakshit-kumar07" },
-           // { icon: <FaInstagram />, link: "https://www.instagram.com/ig_rakshit07/" },
-            //{ icon: <FaYoutube />, link: "https://www.youtube.com/codingmasteryt" },
-            
-          ].map((item, index) => (
-            <a
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl hover:text-purple-500 transition-transform transform hover:scale-110"
-            >
-              {item.icon}
-            </a>
-          ))}
-        </div> */}
+          {/* Quick Nav Links */}
+          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-mono text-slate-400">
+            {navLinks.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleScroll(item.id)}
+                className="hover:text-purple-300 transition-colors focus:outline-none focus-visible:underline"
+              >
+                {item.name}
+              </button>
+            ))}
+          </nav>
 
-        {/* Copyright Text */}
-        <p className="text-sm text-gray-400 mt-6">
-          © 2025 Rakshit Kumar. All rights reserved.
-        </p>
+          {/* Social Icons & Copyright */}
+          <div className="flex flex-col items-center md:items-end space-y-2">
+            <div className="flex items-center gap-2">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.name}
+                  className="w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-purple-500/50 hover:bg-purple-600/20 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-200"
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
+            <p className="text-[11px] font-mono text-slate-600">
+              © {new Date().getFullYear()} · React · Tailwind CSS · Vite
+            </p>
+          </div>
+
+        </div>
       </div>
     </footer>
   );

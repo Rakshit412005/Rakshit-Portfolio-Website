@@ -1,81 +1,221 @@
-import React from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import Tilt from 'react-parallax-tilt';
 import profileImage from '../../assets/profile2.png';
 
 const About = () => {
+  const handleScrollToWork = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("work");
+    if (el) {
+      const navHeight = 80;
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
+
+  const stats = [
+    { value: "2+",   label: "Internships",        sub: "IIIT-A & Elevance" },
+    { value: "5+",   label: "Production Systems", sub: "Full-Stack & AI" },
+    { value: "9.20", label: "CGPA Academic",      sub: "B.Tech CSE @ SRM" },
+    { value: "1",    label: "Award of Excellence",sub: "R&D Recognition" },
+  ];
+
   return (
     <section
       id="about"
-      className="py-4 px-[7vw] md:px-[7vw] lg:px-[20vw] font-sans mt-16 md:mt-24 lg:mt-32"
+      className="min-h-[calc(100vh-5rem)] flex items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20"
     >
-      <div className="flex flex-col-reverse md:flex-row justify-between items-center">
-        {/* Left Side */}
-        <div className="md:w-1/2 text-center md:text-left mt-8 md:mt-0">
-          {/* Greeting */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 leading-tight">
-            Hi, I am
-          </h1>
-          {/* Name */}
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            Rakshit Kumar
-          </h2>
-          {/* Skills Heading with Typing Effect */}
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 text-[#8245ec] leading-tight">
-            <span className="text-white">I am a </span>
-            <ReactTypingEffect
-              text={[
-                'Fullstack Developer',
-                'AI/ML Engineer',
-                'Embedded AI Engineer',
-                'Coder',
-              ]}
-              speed={100}
-              eraseSpeed={50}
-              typingDelay={500}
-              eraseDelay={2000}
-              cursorRenderer={(cursor) => (
-                <span className="text-[#8245ec]">{cursor}</span>
-              )}
-            />
-          </h3>
-          {/* About Me Paragraph */}
-          <p className="text-base sm:text-lg md:text-lg text-gray-400 mb-10 mt-8 leading-relaxed">
-            I am an undergraduate Computer Science and Engineering student with experience in both AI/ML and full-stack development. I build intelligent applications using computer vision and LLMs, and develop scalable web solutions using the MERN stack. I enjoy solving real-world problems, learning new technologies, and creating efficient, end-to-end software systems.
+      <div className="w-full flex flex-col-reverse lg:flex-row justify-between items-center gap-12 lg:gap-14 xl:gap-20">
+
+        {/* ── Left Column: Engineering Bio, Telemetry & Actions ── */}
+        <div className="w-full lg:w-[57%] text-center lg:text-left flex flex-col items-center lg:items-start">
+
+          {/* Status Telemetry Pill */}
+          <div className="animate-fade-slide-up delay-100
+            inline-flex items-center gap-2.5 px-4 py-1.5 mb-6
+            rounded-full bg-emerald-950/40 border border-emerald-500/30
+            text-emerald-300 text-xs sm:text-sm font-medium
+            shadow-lg shadow-emerald-950/40 backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            <span className="tracking-wide">Available for Roles &bull; AI/ML, Edge AI &amp; Full-Stack</span>
+          </div>
+
+          {/* Subsystem Header Monospace */}
+          <p className="animate-fade-slide-up delay-150
+            text-xs sm:text-sm font-mono tracking-widest text-purple-400/90 uppercase mb-2">
+            {"// Software & AI Systems Engineer"}
           </p>
-          {/* Resume Button */}
-          <a
-            href="https://drive.google.com/file/d/1RF_n1jv5ql9DWgYzwQnZ5ZVwlHo0jKJo/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105"
-            style={{
-              background: 'linear-gradient(90deg, #8245ec, #a855f7)',
-              boxShadow: '0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec',
-            }}
-          >
-            DOWNLOAD RESUME
-          </a>
-          
+
+          {/* Main Name Heading */}
+          <h1 className="animate-fade-slide-up delay-200
+            section-title text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl mb-4 tracking-tight">
+            <span className="bg-gradient-to-r from-white via-slate-100 to-purple-200 bg-clip-text text-transparent">
+              Rakshit
+            </span>{" "}
+            <span className="bg-gradient-to-r from-purple-300 via-indigo-200 to-cyan-300 bg-clip-text text-transparent">
+              Kumar
+            </span>
+          </h1>
+
+          {/* Dynamic Technical Specialty */}
+          <div className="animate-fade-slide-up delay-300
+            flex flex-wrap items-center justify-center lg:justify-start gap-2 mb-6
+            text-lg sm:text-xl lg:text-2xl font-medium text-slate-200">
+            <span className="text-slate-400 font-light">Architecting</span>
+            <span className="font-mono text-purple-300 font-semibold">
+              <ReactTypingEffect
+                text={[
+                  'Full-Stack Web Architectures',
+                  'Edge-AI & Computer Vision',
+                  'LLM Pipelines & Evaluation',
+                  'Real-Time Distributed Systems',
+                ]}
+                speed={70}
+                eraseSpeed={40}
+                typingDelay={400}
+                eraseDelay={2200}
+                cursorRenderer={(cursor) => (
+                  <span className="text-cyan-400 font-normal" style={{ animation: 'blink 1s step-end infinite' }}>
+                    {cursor}
+                  </span>
+                )}
+              />
+            </span>
+          </div>
+
+          {/* Bio Narrative */}
+          <p className="animate-fade-slide-up delay-400
+            text-sm sm:text-base text-slate-300/85 mb-8 max-w-2xl leading-relaxed
+            text-center lg:text-left">
+            Final-year Computer Science engineer specializing in production AI/ML,
+            Edge&nbsp;AI on embedded hardware, and high-performance full-stack systems.
+            Experienced in optimizing multimodal LLM pipelines, real-time computer vision,
+            and scalable MERN architectures with strong engineering rigor.
+          </p>
+
+          {/* Verified Technical Telemetry Row */}
+          <div className="animate-fade-slide-up delay-500
+            grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-9 w-full max-w-2xl">
+            {stats.map((stat, i) => (
+              <div
+                key={i}
+                className="relative tech-card p-3.5 sm:p-4 rounded-xl
+                  border border-white/[0.07] hover:border-purple-500/30
+                  flex flex-col items-center lg:items-start transition-all"
+              >
+                <div className="absolute top-0 left-3 right-3 h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent" />
+                <span className="section-title text-2xl sm:text-3xl font-bold
+                  bg-gradient-to-r from-white via-purple-200 to-cyan-300 bg-clip-text text-transparent">
+                  {stat.value}
+                </span>
+                <span className="text-xs font-semibold text-slate-200 mt-1 tracking-tight">
+                  {stat.label}
+                </span>
+                <span className="text-[10px] font-mono text-purple-400/70 mt-0.5">
+                  {stat.sub}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Action Buttons */}
+          <div className="animate-fade-slide-up delay-600
+            flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
+            <a
+              href="https://drive.google.com/file/d/1RF_n1jv5ql9DWgYzwQnZ5ZVwlHo0jKJo/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5
+                rounded-full text-sm font-semibold text-white
+                bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600
+                bg-[length:200%_auto] hover:bg-right
+                shadow-xl shadow-purple-900/40 hover:shadow-purple-700/60
+                hover:scale-[1.02] active:scale-[0.98]
+                border border-purple-400/40
+                transition-all duration-300
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400
+                shimmer-on-hover"
+            >
+              <svg className="w-4 h-4 text-purple-200 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span>Download Resume</span>
+            </a>
+
+            <a
+              href="#work"
+              onClick={handleScrollToWork}
+              className="group inline-flex items-center justify-center gap-2 px-7 py-3.5
+                rounded-full text-sm font-medium text-slate-300 hover:text-white
+                bg-white/[0.04] hover:bg-white/[0.08]
+                border border-white/10 hover:border-cyan-500/40
+                shadow-lg shadow-black/40
+                transition-all duration-200
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+            >
+              <span>Explore Projects</span>
+              <svg className="w-4 h-4 text-cyan-400 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </div>
         </div>
-        {/* Right Side */}
-        <div className="md:w-1/2 flex justify-center md:justify-end">
-          <Tilt
-            className="w-48 h-48 sm:w-64 sm:h-64 md:w-[30rem] md:h-[30rem] border-4 border-purple-700 rounded-full"
-            tiltMaxAngleX={20}
-            tiltMaxAngleY={20}
-            perspective={1000}
-            scale={1.05}
-            transitionSpeed={1000}
-            gyroscope={true}
-          >
-            <img
-              src={profileImage}
-              alt="Rakshit Kumar"
-              className="w-full h-full rounded-full object-cover drop-shadow-[0_10px_20px_rgba(130,69,236,0.5)]"
-            />
-          </Tilt>
+
+        {/* ── Right Column: High-Impact Prominent Profile with Layered Aperture Depth ── */}
+        <div className="animate-fade-in delay-300 w-full lg:w-[43%] flex justify-center lg:justify-end">
+          <div className="relative group">
+
+            {/* Layer 1: Ambient Backlight Bloom (Soft integrated depth) */}
+            <div className="absolute -inset-8 sm:-inset-12
+              bg-gradient-to-tr from-purple-600/25 via-indigo-600/15 to-cyan-400/20
+              rounded-full blur-2xl opacity-60 group-hover:opacity-85
+              transition-opacity duration-700 -z-20 pointer-events-none" />
+
+            {/* Layer 2: Precision Outer Conic Orbital Ring */}
+            <div className="absolute -inset-3 sm:-inset-3.5 rounded-full
+              bg-[conic-gradient(from_0deg,#9333ea,#06b6d4,#6366f1,#c084fc,#9333ea)]
+              opacity-65 blur-[3px] animate-spin-slow group-hover:opacity-90
+              transition-opacity duration-500 -z-10" />
+
+            {/* Layer 3: Counter-Rotating Secondary Cyan Tech Ring */}
+            <div className="absolute -inset-1.5 rounded-full
+              border border-cyan-400/30 border-dashed animate-spin-reverse-slow
+              pointer-events-none -z-5" />
+
+            {/* Layer 4: Aperture Frame with 3D Parallax Tilt */}
+            <Tilt
+              className="w-72 h-72 sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px] xl:w-[430px] xl:h-[430px]
+                rounded-full p-[3px]
+                bg-gradient-to-b from-white/25 via-purple-500/25 to-cyan-500/20
+                shadow-2xl shadow-purple-950/80
+                relative cursor-pointer"
+              tiltMaxAngleX={8}
+              tiltMaxAngleY={8}
+              perspective={1200}
+              scale={1.02}
+              transitionSpeed={1000}
+              gyroscope={false}
+            >
+              {/* Inner Bezel and Image Container */}
+              <div className="w-full h-full rounded-full overflow-hidden bg-[#0a071e] relative shadow-[inset_0_0_24px_rgba(0,0,0,0.85)]">
+                <img
+                  src={profileImage}
+                  alt="Rakshit Kumar - AI & Full-Stack Engineer"
+                  className="w-full h-full object-cover rounded-full filter contrast-[1.02] brightness-[1.02] transition-transform duration-700 group-hover:scale-105"
+                  loading="eager"
+                />
+                {/* Physical glass reflection overlay */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/[0.03] to-purple-400/[0.06] pointer-events-none" />
+                {/* Inner perimeter rim shadow */}
+                <div className="absolute inset-0 rounded-full border border-white/10 pointer-events-none" />
+              </div>
+            </Tilt>
+          </div>
         </div>
+
       </div>
     </section>
   );

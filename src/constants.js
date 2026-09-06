@@ -1,18 +1,18 @@
 // Skills Section Logo's
 import htmlLogo from "./assets/tech_logo/html.png";
 import cssLogo from "./assets/tech_logo/css.png";
-import sassLogo from "./assets/tech_logo/sass.png";
+// import sassLogo from "./assets/tech_logo/sass.png";
 import javascriptLogo from "./assets/tech_logo/javascript.png";
 import reactjsLogo from "./assets/tech_logo/reactjs.png";
-import angularLogo from "./assets/tech_logo/angular.png";
+// import angularLogo from "./assets/tech_logo/angular.png";
 import reduxLogo from "./assets/tech_logo/redux.png";
 import nextjsLogo from "./assets/tech_logo/nextjs.png";
 import chartJS from "./assets/tech_logo/chartJS.png";
 import tailwindcssLogo from "./assets/tech_logo/tailwindcss.png";
-import gsapLogo from "./assets/tech_logo/gsap.png";
-import materialuiLogo from "./assets/tech_logo/materialui.png";
-import bootstrapLogo from "./assets/tech_logo/bootstrap.png";
-import springbootLogo from "./assets/tech_logo/springboot.png";
+// import gsapLogo from "./assets/tech_logo/gsap.png";
+// import materialuiLogo from "./assets/tech_logo/materialui.png";
+// import bootstrapLogo from "./assets/tech_logo/bootstrap.png";
+// import springbootLogo from "./assets/tech_logo/springboot.png";
 import nodejsLogo from "./assets/tech_logo/nodejs.png";
 import expressjsLogo from "./assets/tech_logo/express.png";
 import mysqlLogo from "./assets/tech_logo/mysql.png";
@@ -22,7 +22,7 @@ import matPlotLibLogo from "./assets/tech_logo/matPlotLib.png";
 import cLogo from "./assets/tech_logo/c.png";
 import cloudinary from "./assets/tech_logo/cloudinary.png";
 import cppLogo from "./assets/tech_logo/cpp.png";
-import javaLogo from "./assets/tech_logo/java.png";
+// import javaLogo from "./assets/tech_logo/java.png";
 import JWT from "./assets/tech_logo/jwt.png";
 import pythonLogo from "./assets/tech_logo/python.png";
 import typescriptLogo from "./assets/tech_logo/typescript.png";
@@ -36,16 +36,16 @@ import githubLogo from "./assets/tech_logo/github.png";
 import openCVLogo from "./assets/tech_logo/openCV.png";
 import raspberryPiLogo from "./assets/tech_logo/raspberryPi.png";
 import vscodeLogo from "./assets/tech_logo/vscode.png";
-import postmanLogo from "./assets/tech_logo/postman.png";
+// import postmanLogo from "./assets/tech_logo/postman.png";
 import mcLogo from "./assets/tech_logo/mc.png";
 import sockitIO from "./assets/tech_logo/socketIO.png";
-import figmaLogo from "./assets/tech_logo/figma.png";
+// import figmaLogo from "./assets/tech_logo/figma.png";
 import numPyLogo from "./assets/tech_logo/numPy.png";
 import pandasLogo from "./assets/tech_logo/pandas.png";
-import netlifyLogo from "./assets/tech_logo/netlify.png";
+// import netlifyLogo from "./assets/tech_logo/netlify.png";
 import vercelLogo from "./assets/tech_logo/vercel.png";
-import postgreLogo from "./assets/tech_logo/postgre.png";
-import csharpLogo from "./assets/tech_logo/csharp.png";
+// import postgreLogo from "./assets/tech_logo/postgre.png";
+// import csharpLogo from "./assets/tech_logo/csharp.png";
 import renderLogo from "./assets/tech_logo/render.png";
 // Experience Section Logo's
 import IIITLogo from "./assets/company_logo/IIIT_logo.png";
@@ -58,16 +58,16 @@ import SrmLogo from "./assets/education_logo/SRM_logo.png";
 import GrmLogo from "./assets/education_logo/GRM_logo.png";
 
 // Project Section Logo's
-import githubdetLogo from "./assets/work_logo/github_det.png";
-import csprepLogo from "./assets/work_logo/cs_prep.png";
+// import githubdetLogo from "./assets/work_logo/github_det.png";
+// import csprepLogo from "./assets/work_logo/cs_prep.png";
 import movierecLogo from "./assets/work_logo/movie_rec.png";
-import taskremLogo from "./assets/work_logo/task_rem.png";
-import npmLogo from "./assets/work_logo/npm.png";
-import webverLogo from "./assets/work_logo/web_dig.png";
-import cmLogo from "./assets/work_logo/cm.png";
-import imagesearchLogo from "./assets/work_logo/image_search.png";
-import removebgLogo from "./assets/work_logo/remove_bg.png";
-import twillerLogo from "./assets/work_logo/twiller.png";
+// import taskremLogo from "./assets/work_logo/task_rem.png";
+// import npmLogo from "./assets/work_logo/npm.png";
+// import webverLogo from "./assets/work_logo/web_dig.png";
+// import cmLogo from "./assets/work_logo/cm.png";
+// import imagesearchLogo from "./assets/work_logo/image_search.png";
+// import removebgLogo from "./assets/work_logo/remove_bg.png";
+// import twillerLogo from "./assets/work_logo/twiller.png";
 import stockMarketPredictorLogo from './assets/work_logo/stock_price_predictor.png';
 import aiInterviewerLogo from './assets/work_logo/ai-interviewer.png';
 import chessLogo from './assets/work_logo/chess.png';
@@ -388,9 +388,9 @@ export const projects = [
 
   {
     id: 4,
-    title: "Restraunt Reservation",
+    title: "Restaurant Reservation",
     description:
-      "A full-stack quiz-based platform designed for GATE/UGC NET students to practice previous year questions and create customized tests. The platform offers comprehensive profile stats and detailed results, helping students track and improve their preparation journey effectively.",
+      "A full-stack restaurant reservation platform built using the MERN stack (MongoDB, Express.js, React.js, Node.js), featuring table booking management, dynamic availability checks, intuitive customer reservations, and responsive UI.",
     image: restrauntReservationLogo,
     tags: [
       "React JS",
@@ -457,4 +457,69 @@ export const projects = [
   //   github: "https://github.com/codingmastr/Image-Background-Remover",
   //   webapp: "https://removeyourbg.netlify.app/",
   // },
+];
+
+export const achievements = [
+  {
+    id: "01",
+    tag: "01 // RECOGNITION",
+    category: "RESEARCH & DEVELOPMENT",
+    title: "Award of Excellence",
+    subtitle: "IIIT Allahabad • Research & Development",
+    description:
+      "Award of Excellence during IIIT Allahabad internship, honored for outstanding contribution in building an edge-AI task driven object detection system with Raspberry Pi 5, AI HAT+ (13 TOPS) and LLM integration.",
+    metrics: [
+      { value: "13 TOPS", label: "AI HAT+ NPU Compute", highlight: true },
+      { value: "Edge-AI", label: "Task-Driven Vision", highlight: false },
+    ],
+    technicalHighlights: [
+      "Raspberry Pi 5",
+      "AI HAT+ (13 TOPS)",
+      "Edge-AI Detection",
+      "LLM Integration",
+    ],
+    accent: "amber",
+  },
+  {
+    id: "02",
+    tag: "02 // DSA",
+    category: "DATA STRUCTURES & ALGORITHMS",
+    title: "200+ Problems",
+    subtitle: "LeetCode & GeeksforGeeks",
+    description:
+      "Solved 200+ DSA problems across LeetCode and GeeksforGeeks, with a LeetCode rating of 1530.",
+    metrics: [
+      { value: "200+", label: "Problems Solved", highlight: true },
+      { value: "1530", label: "LeetCode Rating", highlight: true },
+    ],
+    technicalHighlights: [
+      "LeetCode Rating: 1530",
+      "GeeksforGeeks",
+      "Data Structures & Algorithms",
+    ],
+    link: {
+      url: "https://codolio.com/profile/rakshit07",
+      label: "Verified Coding Profile",
+    },
+    accent: "cyan",
+  },
+  {
+    id: "03",
+    tag: "03 // RANKING",
+    category: "EMPLOYABILITY BENCHMARK",
+    title: "138th Rank",
+    subtitle: "College Employability Assessment",
+    description:
+      "Secured 138th (Top 2.5%) Employability ranking in the College Employability Assessment among 5,448 students, evaluated across six tests.",
+    metrics: [
+      { value: "138th", label: "Institutional Rank", highlight: true },
+      { value: "Top 2.5%", label: "Of 5,448 Students", highlight: true },
+    ],
+    technicalHighlights: [
+      "Top 2.5% Percentile",
+      "5,448 Students",
+      "6 Evaluated Tests",
+    ],
+    accent: "purple",
+  },
 ];
