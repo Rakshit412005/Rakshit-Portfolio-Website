@@ -92,22 +92,22 @@ const Navbar = () => {
     {
       name: "GitHub",
       href: "https://github.com/Rakshit412005",
-      icon: <FaGithub size={18} />,
+      icon: <FaGithub size={17} />,
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/rakshit-kumar07",
-      icon: <FaLinkedin size={18} />,
+      icon: <FaLinkedin size={17} />,
     },
     {
       name: "Codolio",
       href: "https://codolio.com/profile/rakshit07",
-      icon: <FaCode size={18} />,
+      icon: <FaCode size={17} />,
     },
     {
       name: "Instagram",
       href: "https://www.instagram.com/ig_rakshit07/",
-      icon: <FaInstagram size={18} />,
+      icon: <FaInstagram size={17} />,
     },
   ];
 
@@ -116,36 +116,36 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-[#030014]/80 backdrop-blur-xl border-b border-white/[0.08] shadow-lg shadow-purple-950/20 py-3.5"
+            ? "bg-[#030014]/85 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl shadow-purple-950/30 py-3.5"
             : "bg-transparent py-5"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Logo / Brand */}
           <button
             onClick={() => handleMenuItemClick("about")}
-            className="group flex items-center text-lg font-semibold tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 rounded-md py-1 px-1"
-            aria-label="Rakshit Kumar - Scroll to top"
+            className="group flex items-center text-lg font-bold tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-lg py-1 px-1.5 transition-transform"
+            aria-label="Rakshit Kumar - Return to top"
           >
-            <span className="text-purple-400 group-hover:text-purple-300 transition-colors font-mono">&lt;</span>
-            <span className="text-white group-hover:text-purple-100 transition-colors">Rakshit</span>
+            <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors font-mono">&lt;</span>
+            <span className="text-white group-hover:text-purple-200 transition-colors font-display">Rakshit</span>
             <span className="text-purple-400 group-hover:text-purple-300 transition-colors font-mono mx-0.5">/</span>
-            <span className="text-white group-hover:text-purple-100 transition-colors">Kumar</span>
-            <span className="text-purple-400 group-hover:text-purple-300 transition-colors font-mono">&gt;</span>
+            <span className="text-white group-hover:text-purple-200 transition-colors font-display">Kumar</span>
+            <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors font-mono">&gt;</span>
           </button>
 
           {/* Desktop Navigation Links */}
-          <ul className="hidden md:flex items-center space-x-1 lg:space-x-2 bg-white/[0.03] border border-white/[0.06] rounded-full px-3 py-1.5 backdrop-blur-md">
+          <ul className="hidden md:flex items-center space-x-1 lg:space-x-1.5 bg-slate-950/60 border border-white/[0.08] rounded-full px-3 py-1.5 backdrop-blur-xl shadow-lg shadow-black/50">
             {menuItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <li key={item.id}>
                   <button
                     onClick={() => handleMenuItemClick(item.id)}
-                    className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 ${
+                    className={`px-3.5 py-1.5 text-xs lg:text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 ${
                       isActive
-                        ? "text-white bg-purple-600/30 border border-purple-500/40 shadow-sm shadow-purple-500/30"
-                        : "text-gray-300 hover:text-white hover:bg-white/[0.05]"
+                        ? "text-white bg-gradient-to-r from-purple-600/50 to-cyan-500/40 border border-purple-400/40 shadow-sm shadow-purple-500/40 font-semibold"
+                        : "text-slate-300 hover:text-white hover:bg-white/[0.06]"
                     }`}
                   >
                     {item.label}
@@ -156,7 +156,7 @@ const Navbar = () => {
           </ul>
 
           {/* Desktop Social Icons */}
-          <div className="hidden md:flex items-center space-x-2.5">
+          <div className="hidden md:flex items-center space-x-2">
             {socialLinks.map((item) => (
               <a
                 key={item.name}
@@ -164,7 +164,7 @@ const Navbar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={item.name}
-                className="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-purple-600/20 border border-white/[0.08] hover:border-purple-500/40 text-gray-300 hover:text-purple-300 flex items-center justify-center transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                className="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-purple-600/25 border border-white/[0.08] hover:border-purple-500/40 text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
               >
                 {item.icon}
               </a>
@@ -175,7 +175,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-300 hover:text-white bg-white/[0.04] border border-white/[0.08] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+              className="p-2 rounded-xl text-slate-300 hover:text-white bg-white/[0.05] border border-white/[0.08] focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
             >
@@ -185,19 +185,19 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Drawer Overlay Backdrop */}
+      {/* Mobile Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300"
+          className="fixed inset-0 bg-black/80 backdrop-blur-md z-40 md:hidden transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
       )}
 
-      {/* Mobile Dropdown Panel */}
+      {/* Mobile Drawer */}
       {isOpen && (
         <div
-          className="fixed top-20 inset-x-4 max-w-md mx-auto bg-[#0a071e]/95 border border-white/10 backdrop-blur-2xl z-50 rounded-2xl p-6 shadow-2xl shadow-purple-950/50 md:hidden animate-in fade-in slide-in-from-top-4 duration-200"
+          className="fixed top-20 inset-x-4 max-w-md mx-auto bg-[#0a071e]/95 border border-white/12 backdrop-blur-2xl z-50 rounded-2xl p-6 shadow-2xl shadow-purple-950/60 md:hidden animate-scale-in"
           role="dialog"
           aria-label="Mobile Navigation"
         >
@@ -210,8 +210,8 @@ const Navbar = () => {
                     onClick={() => handleMenuItemClick(item.id)}
                     className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                       isActive
-                        ? "bg-purple-600/30 text-white border border-purple-500/40"
-                        : "text-gray-300 hover:text-white hover:bg-white/[0.05]"
+                        ? "bg-purple-600/40 text-white border border-purple-500/40 font-semibold"
+                        : "text-slate-300 hover:text-white hover:bg-white/[0.06]"
                     }`}
                   >
                     {item.label}
@@ -222,7 +222,9 @@ const Navbar = () => {
           </ul>
 
           <div className="mt-6 pt-5 border-t border-white/10">
-            <p className="text-xs text-gray-400 mb-3 text-center uppercase tracking-wider font-semibold">Connect</p>
+            <p className="font-mono text-xs text-slate-400 mb-3 text-center uppercase tracking-wider">
+              {"// Direct Links"}
+            </p>
             <div className="flex justify-center space-x-3">
               {socialLinks.map((item) => (
                 <a
@@ -231,7 +233,7 @@ const Navbar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.name}
-                  className="w-10 h-10 rounded-full bg-white/[0.05] border border-white/10 hover:border-purple-500/50 hover:bg-purple-600/20 text-gray-300 hover:text-white flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-white/[0.05] border border-white/10 hover:border-purple-500/50 hover:bg-purple-600/20 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
                 >
                   {item.icon}
                 </a>

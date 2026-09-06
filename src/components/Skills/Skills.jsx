@@ -3,23 +3,83 @@ import { useEffect, useRef, useState } from "react";
 import { SkillsInfo } from "../../constants";
 import Tilt from "react-parallax-tilt";
 
-// Per-category color accent system
-const categoryStyles = {
-  "Frontend":  { accent: "from-blue-500/40 to-cyan-400/20",   border: "hover:border-cyan-500/40",   chip: "hover:border-cyan-500/30 hover:bg-cyan-950/25 hover:text-cyan-300",   dot: "bg-cyan-400"   },
-  "Backend":   { accent: "from-emerald-500/40 to-teal-400/20", border: "hover:border-emerald-500/40", chip: "hover:border-emerald-500/30 hover:bg-emerald-950/25 hover:text-emerald-300", dot: "bg-emerald-400" },
-  "Languages": { accent: "from-orange-500/40 to-yellow-400/20",border: "hover:border-orange-500/40",  chip: "hover:border-orange-500/30 hover:bg-orange-950/25 hover:text-orange-300",  dot: "bg-orange-400"  },
-  "Tools":     { accent: "from-violet-500/40 to-purple-400/20", border: "hover:border-violet-500/40", chip: "hover:border-violet-500/30 hover:bg-violet-950/25 hover:text-violet-300", dot: "bg-violet-400"  },
-  "AI/ML":     { accent: "from-fuchsia-500/40 to-pink-400/20", border: "hover:border-fuchsia-500/40", chip: "hover:border-fuchsia-500/30 hover:bg-fuchsia-950/25 hover:text-fuchsia-300", dot: "bg-fuchsia-400" },
+// Subsystem metadata and domain accents
+const domainMetadata = {
+  "AI/ML": {
+    code: "SYS-01 // INTELLIGENT_SYSTEMS",
+    sub: "Deep Learning, Computer Vision, Model Inference & Analysis",
+    accentGlow: "group-hover:shadow-[0_0_20px_rgba(217,70,239,0.25)]",
+    borderHover: "hover:border-fuchsia-500/40",
+    tileHover: "hover:border-fuchsia-500/40 hover:bg-fuchsia-950/20 hover:text-fuchsia-200",
+    topBar: "from-fuchsia-500 via-purple-500 to-cyan-500",
+    badge: "bg-fuchsia-950/50 text-fuchsia-300 border-fuchsia-700/30",
+    dot: "bg-fuchsia-400",
+  },
+  "Backend": {
+    code: "SYS-02 // DISTRIBUTED_BACKEND_APIS",
+    sub: "RESTful Services, Authentication, Relational & NoSQL Datastores",
+    accentGlow: "group-hover:shadow-[0_0_20px_rgba(16,185,129,0.25)]",
+    borderHover: "hover:border-emerald-500/40",
+    tileHover: "hover:border-emerald-500/40 hover:bg-emerald-950/20 hover:text-emerald-200",
+    topBar: "from-emerald-500 via-teal-500 to-cyan-500",
+    badge: "bg-emerald-950/50 text-emerald-300 border-emerald-700/30",
+    dot: "bg-emerald-400",
+  },
+  "Frontend": {
+    code: "SYS-03 // REACTIVE_CLIENT_SYSTEMS",
+    sub: "Reactive UI, Component Systems, State Management & WebSockets",
+    accentGlow: "group-hover:shadow-[0_0_20px_rgba(6,182,212,0.25)]",
+    borderHover: "hover:border-cyan-500/40",
+    tileHover: "hover:border-cyan-500/40 hover:bg-cyan-950/20 hover:text-cyan-200",
+    topBar: "from-cyan-500 via-blue-500 to-indigo-500",
+    badge: "bg-cyan-950/50 text-cyan-300 border-cyan-700/30",
+    dot: "bg-cyan-400",
+  },
+  "Languages": {
+    code: "SYS-04 // CORE_LANGUAGES_COMPUTE",
+    sub: "Compiled Systems, Dynamic Scripting & Algorithmic Problem Solving",
+    accentGlow: "group-hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]",
+    borderHover: "hover:border-amber-500/40",
+    tileHover: "hover:border-amber-500/40 hover:bg-amber-950/20 hover:text-amber-200",
+    topBar: "from-amber-500 via-orange-500 to-yellow-500",
+    badge: "bg-amber-950/50 text-amber-300 border-amber-700/30",
+    dot: "bg-amber-400",
+  },
+  "Tools": {
+    code: "SYS-05 // DEVOPS_HARDWARE_TOOLING",
+    sub: "Containerization, Edge Hardware, Version Control & CI/CD",
+    accentGlow: "group-hover:shadow-[0_0_20px_rgba(139,92,246,0.25)]",
+    borderHover: "hover:border-violet-500/40",
+    tileHover: "hover:border-violet-500/40 hover:bg-violet-950/20 hover:text-violet-200",
+    topBar: "from-violet-500 via-purple-500 to-indigo-500",
+    badge: "bg-violet-950/50 text-violet-300 border-violet-700/30",
+    dot: "bg-violet-400",
+  },
 };
-const defaultStyle = { accent: "from-purple-500/40 to-indigo-400/20", border: "hover:border-purple-500/40", chip: "hover:border-purple-500/30 hover:bg-purple-950/25 hover:text-purple-300", dot: "bg-purple-400" };
 
-// Intersection-observer hook for viewport entrance
-function useInView(threshold = 0.15) {
+const defaultDomain = {
+  code: "SYS-00 // TECHNICAL_MODULE",
+  sub: "Production Engineering & Architecture",
+  accentGlow: "group-hover:shadow-[0_0_20px_rgba(168,85,247,0.25)]",
+  borderHover: "hover:border-purple-500/40",
+  tileHover: "hover:border-purple-500/40 hover:bg-purple-950/20 hover:text-purple-200",
+  topBar: "from-purple-500 to-indigo-500",
+  badge: "bg-purple-950/50 text-purple-300 border-purple-700/30",
+  dot: "bg-purple-400",
+};
+
+// Intersection-observer hook
+function useInView(threshold = 0.12) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
       { threshold }
     );
     if (ref.current) observer.observe(ref.current);
@@ -31,81 +91,123 @@ function useInView(threshold = 0.15) {
 const SectionHeader = () => {
   const [ref, inView] = useInView(0.2);
   return (
-    <div ref={ref} className={`text-center mb-16 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-      <p className="section-label mb-3">Technical Proficiency</p>
+    <div
+      ref={ref}
+      className={`text-center mb-16 sm:mb-20 transition-all duration-700 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`}
+    >
+      <p className="section-label mb-3">{"// TECHNICAL CAPABILITY MATRIX"}</p>
       <h2 className="section-title text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-        Skills &amp; <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Expertise</span>
+        Engineering &amp;{" "}
+        <span className="bg-gradient-to-r from-purple-400 via-fuchsia-300 to-cyan-400 bg-clip-text text-transparent">
+          Capability System
+        </span>
       </h2>
       <div className="w-24 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mb-4" />
-      <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-        A curated set of technical skills honed through hands-on internships, research, and production projects.
+      <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+        Production-tested technologies across machine learning, scalable backend services,
+        reactive web platforms, and embedded edge systems.
       </p>
     </div>
   );
 };
 
-const SkillCard = ({ category, index }) => {
-  const [ref, inView] = useInView(0.1);
-  const style = categoryStyles[category.title] || defaultStyle;
-  const isLastOdd = index === SkillsInfo.length - 1 && SkillsInfo.length % 2 !== 0;
+const CapabilityModule = ({ category, index }) => {
+  const [ref, inView] = useInView(0.08);
+  const meta = domainMetadata[category.title] || defaultDomain;
+  const isAIML = category.title === "AI/ML";
 
   return (
     <div
       ref={ref}
-      className={`w-full ${isLastOdd ? "md:col-span-2 md:max-w-xl md:mx-auto" : ""}
+      className={`w-full ${isAIML ? "md:col-span-2" : ""}
         transition-all duration-700
         ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-      style={{ transitionDelay: `${index * 90}ms` }}
+      style={{ transitionDelay: `${index * 80}ms` }}
     >
       <Tilt
-        tiltMaxAngleX={6}
-        tiltMaxAngleY={6}
-        perspective={1100}
+        tiltMaxAngleX={4}
+        tiltMaxAngleY={4}
+        perspective={1200}
         scale={1.01}
-        transitionSpeed={900}
+        transitionSpeed={1000}
         gyroscope={false}
         className="h-full"
       >
-        {/* Card */}
-        <div className={`h-full relative bg-slate-900/50 backdrop-blur-xl p-6 sm:p-7
-          rounded-2xl border border-white/[0.08] ${style.border}
-          shadow-xl shadow-black/30
-          transition-all duration-300
-          shimmer-on-hover overflow-hidden`}>
+        <div
+          className={`h-full relative tech-card p-6 sm:p-7 rounded-2xl
+            border border-white/[0.08] ${meta.borderHover}
+            ${meta.accentGlow}
+            transition-all duration-300 overflow-hidden group`}
+        >
+          {/* Top illuminated hairline */}
+          <div
+            className={`absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl
+              bg-gradient-to-r ${meta.topBar}`}
+          />
 
-          {/* Gradient top accent bar */}
-          <div className={`absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl
-            bg-gradient-to-r ${style.accent}`} />
+          {/* Module Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 mb-5 border-b border-white/[0.06]">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className={`w-2 h-2 rounded-full ${meta.dot} shadow-md`} />
+                <span className="font-mono text-[11px] tracking-wider text-slate-400">
+                  {meta.code}
+                </span>
+              </div>
+              <h3 className="section-title text-lg sm:text-xl font-bold text-white tracking-tight">
+                {category.title}
+              </h3>
+              <p className="text-xs text-slate-400 mt-0.5 font-light">
+                {meta.sub}
+              </p>
+            </div>
 
-          {/* Card Header */}
-          <div className="flex items-center gap-3 mb-5">
-            <span className={`w-2 h-2 rounded-full ${style.dot} shadow-lg`} />
-            <h3 className="section-title text-base sm:text-lg font-semibold text-white">
-              {category.title}
-            </h3>
-            <span className="ml-auto text-xs text-slate-500 font-mono">
-              {String(category.skills.length).padStart(2, "0")} skills
-            </span>
+            <div className="flex items-center gap-2 self-start sm:self-center">
+              <span
+                className={`text-[11px] font-mono px-2.5 py-1 rounded-full border ${meta.badge}`}
+              >
+                {category.skills.length} Technologies
+              </span>
+            </div>
           </div>
 
-          {/* Skills Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+          {/* Capability Tiles Grid */}
+          <div
+            className={`grid gap-2.5 ${
+              isAIML
+                ? "grid-cols-2 sm:grid-cols-4 lg:grid-cols-4"
+                : "grid-cols-2 sm:grid-cols-3"
+            }`}
+          >
             {category.skills.map((skill) => (
               <div
                 key={skill.name}
-                className={`flex items-center gap-2 bg-white/[0.03] border border-white/[0.07]
-                  ${style.chip}
-                  rounded-xl py-2 px-3 transition-all duration-200 group`}
+                className={`relative flex items-center gap-2.5 px-3 py-2.5
+                  bg-slate-950/60 border border-white/[0.06]
+                  ${meta.tileHover}
+                  rounded-xl transition-all duration-200 cursor-default group/tile`}
               >
-                <img
-                  src={skill.logo}
-                  alt={`${skill.name} logo`}
-                  className="w-4 h-4 sm:w-5 sm:h-5 object-contain shrink-0 opacity-90 group-hover:opacity-100 transition-opacity"
-                  loading="lazy"
-                />
-                <span className="text-xs sm:text-sm font-medium text-slate-300 group-hover:text-white truncate transition-colors">
-                  {skill.name}
-                </span>
+                {/* Tech Logo Plate with Ambient Glow */}
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center shrink-0 p-1 group-hover/tile:scale-105 transition-transform">
+                  <img
+                    src={skill.logo}
+                    alt={`${skill.name} icon`}
+                    className="w-full h-full object-contain filter drop-shadow"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Skill Name */}
+                <div className="flex flex-col min-w-0">
+                  <span className="text-xs sm:text-sm font-medium text-slate-200 group-hover/tile:text-white truncate transition-colors">
+                    {skill.name}
+                  </span>
+                  <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider group-hover/tile:text-slate-400">
+                    Active Stack
+                  </span>
+                </div>
               </div>
             ))}
           </div>
@@ -118,12 +220,16 @@ const SkillCard = ({ category, index }) => {
 const Skills = () => (
   <section
     id="skills"
-    className="py-20 lg:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+    className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative"
   >
+    {/* Background localized aura for Skills section */}
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-purple-600/6 rounded-full blur-[140px] pointer-events-none -z-10" />
+
     <SectionHeader />
+
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
       {SkillsInfo.map((category, idx) => (
-        <SkillCard key={category.title} category={category} index={idx} />
+        <CapabilityModule key={category.title} category={category} index={idx} />
       ))}
     </div>
   </section>

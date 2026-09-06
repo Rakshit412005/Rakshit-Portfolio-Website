@@ -7,7 +7,12 @@ function useInView(threshold = 0.12) {
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
       { threshold }
     );
     if (ref.current) observer.observe(ref.current);
@@ -19,14 +24,22 @@ function useInView(threshold = 0.12) {
 const SectionHeader = () => {
   const [ref, inView] = useInView(0.2);
   return (
-    <div ref={ref} className={`text-center mb-16 sm:mb-20 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-      <p className="section-label mb-3">Academic Background</p>
+    <div
+      ref={ref}
+      className={`text-center mb-16 sm:mb-20 transition-all duration-700 ${
+        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      }`}
+    >
+      <p className="section-label mb-3">{"// ACADEMIC TELEMETRY & FOUNDATION"}</p>
       <h2 className="section-title text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-        Education &amp; <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Academics</span>
+        Education &amp;{" "}
+        <span className="bg-gradient-to-r from-purple-400 via-fuchsia-300 to-cyan-400 bg-clip-text text-transparent">
+          Academic Credentials
+        </span>
       </h2>
       <div className="w-24 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mb-4" />
-      <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-        My academic foundation and educational milestones in Computer Science Engineering.
+      <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+        Rigorous engineering coursework, foundational computer science fundamentals, and academic excellence.
       </p>
     </div>
   );
@@ -36,91 +49,93 @@ const EducationCard = ({ edu, index }) => {
   const [ref, inView] = useInView(0.1);
   const isEven = index % 2 === 0;
   const num = String(index + 1).padStart(2, "0");
+  const isDegree = edu.id === 1; // SRMIST B.Tech
 
   return (
     <div ref={ref} className="relative flex items-start md:justify-between">
-      {/* Timeline Node */}
+      {/* Timeline Node Beacon */}
       <div
         className={`absolute left-6 md:left-1/2 -translate-x-1/2 z-10
-          transition-all duration-700
-          ${inView ? "opacity-100 scale-100" : "opacity-0 scale-50"}`}
-        style={{ transitionDelay: `${index * 110 + 100}ms` }}
+          transition-all duration-700 ${
+            inView ? "opacity-100 scale-100" : "opacity-0 scale-50"
+          }`}
+        style={{ transitionDelay: `${index * 100 + 100}ms` }}
       >
-        <div className="absolute inset-0 rounded-full bg-purple-500/20 animate-glow-ring" />
-        <div className="w-11 h-11 rounded-full
-          bg-gradient-to-br from-[#0c0824] to-[#13093a]
-          border-2 border-purple-500/60
-          shadow-lg shadow-purple-950
-          flex items-center justify-center">
-          <img
-            src={edu.img}
-            alt={edu.school}
-            className="w-6 h-6 object-contain rounded-full"
-          />
+        <div className="relative">
+          <div className="absolute -inset-1.5 rounded-full bg-cyan-500/20 animate-pulse-halo" />
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full
+            bg-gradient-to-br from-[#0c0828] via-[#140b3c] to-[#08041a]
+            border-2 border-cyan-400/60 shadow-xl shadow-purple-950
+            flex items-center justify-center relative z-10">
+            <img
+              src={edu.img}
+              alt={edu.school}
+              className="w-7 h-7 sm:w-8 sm:h-8 object-contain rounded-full filter drop-shadow"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Card */}
+      {/* Education Content Card */}
       <div
-        className={`w-full ml-16 md:ml-0 md:w-[calc(50%-3rem)]
+        className={`w-full ml-16 md:ml-0 md:w-[calc(50%-3.5rem)]
           ${isEven ? "md:mr-auto" : "md:ml-auto"}
           transition-all duration-700
-          ${inView
-            ? "opacity-100 translate-x-0 translate-y-0"
-            : isEven
-              ? "opacity-0 -translate-x-6 translate-y-4"
-              : "opacity-0 translate-x-6 translate-y-4"
+          ${
+            inView
+              ? "opacity-100 translate-x-0 translate-y-0"
+              : isEven
+              ? "opacity-0 -translate-x-8 translate-y-4"
+              : "opacity-0 translate-x-8 translate-y-4"
           }`}
-        style={{ transitionDelay: `${index * 110}ms` }}
+        style={{ transitionDelay: `${index * 100}ms` }}
       >
-        <div className="relative bg-slate-900/55 backdrop-blur-xl
-          border border-white/[0.08] hover:border-purple-500/40
-          rounded-2xl p-5 sm:p-6
-          shadow-xl shadow-black/30
-          hover:shadow-purple-900/20 hover:-translate-y-1
-          transition-all duration-300
-          shimmer-on-hover overflow-hidden">
-
-          {/* Left accent line */}
-          <div className="absolute left-0 top-4 bottom-4 w-0.5 rounded-full
-            bg-gradient-to-b from-transparent via-purple-500/60 to-transparent" />
+        <div
+          className={`tech-card rounded-2xl p-6 sm:p-7
+            border ${isDegree ? "border-cyan-500/30 hover:border-cyan-400/50" : "border-white/[0.08] hover:border-purple-500/40"}
+            shadow-xl shadow-black/40 hover:shadow-cyan-950/20
+            transition-all duration-300 relative group overflow-hidden`}
+        >
+          {/* Top hairline */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-500/40 via-purple-400/50 to-transparent" />
 
           {/* Number badge */}
-          <span className="absolute top-4 right-4 text-xs font-mono text-purple-500/50 select-none">
-            {num}
+          <span className="absolute top-5 right-5 font-mono text-xs text-slate-500 select-none">
+            {num} {"//"}
           </span>
 
-          {/* Header */}
-          <div className="flex flex-col gap-1 mb-3 pr-8">
-            <h3 className="section-title text-base sm:text-lg font-bold text-white leading-tight">
+          {/* Degree & School */}
+          <div className="flex flex-col gap-1 mb-3 pr-10">
+            <h3 className="section-title text-base sm:text-lg font-bold text-white leading-snug group-hover:text-cyan-200 transition-colors">
               {edu.degree}
             </h3>
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-medium text-purple-300">
+            <div className="flex flex-wrap items-center gap-2 mt-0.5">
+              <span className="text-sm font-semibold text-purple-300">
                 {edu.school}
               </span>
-              <span className="text-xs font-mono text-purple-300/70
-                bg-purple-950/50 border border-purple-800/40
-                px-2.5 py-0.5 rounded-full">
+              <span className="font-mono text-xs text-slate-400 bg-white/[0.04] border border-white/[0.08] px-2.5 py-0.5 rounded-full">
                 {edu.date}
               </span>
             </div>
           </div>
 
-          {/* Grade */}
-          <div className="inline-flex items-center gap-1.5
-            bg-gradient-to-r from-emerald-950/60 to-teal-950/40
-            border border-emerald-500/30
-            text-emerald-300 text-xs font-semibold
-            px-3 py-1 rounded-full mb-3">
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-            </svg>
-            {edu.grade}
+          {/* Grade Telemetry Badge */}
+          <div className="mb-4">
+            <span
+              className={`inline-flex items-center gap-2 text-xs font-mono font-semibold px-3 py-1.5 rounded-lg border ${
+                isDegree
+                  ? "bg-cyan-950/50 border-cyan-500/40 text-cyan-300 shadow-sm shadow-cyan-900/30"
+                  : "bg-emerald-950/50 border-emerald-500/30 text-emerald-300"
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+              <span>Score: {edu.grade}</span>
+              {isDegree && <span className="text-[10px] text-cyan-400/80 uppercase font-mono ml-1">{"// Top Percentile"}</span>}
+            </span>
           </div>
 
-          {/* Description */}
-          <p className="text-xs sm:text-sm text-slate-300/80 leading-relaxed line-clamp-3">
+          {/* Narrative */}
+          <p className="text-xs sm:text-sm text-slate-300/85 leading-relaxed">
             {edu.desc}
           </p>
         </div>
@@ -135,16 +150,16 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="py-20 lg:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative"
+      className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative"
     >
       <SectionHeader />
 
       <div className="relative">
-        {/* Timeline Line */}
+        {/* Timeline Conduit */}
         <div
           ref={lineRef}
-          className={`absolute left-6 md:left-1/2 top-0 bottom-0 w-px
-            bg-gradient-to-b from-purple-500/5 via-purple-500/50 to-purple-500/5
+          className={`absolute left-6 md:left-1/2 top-4 bottom-4 w-[2px]
+            bg-gradient-to-b from-cyan-500/20 via-purple-500/60 to-purple-500/20
             -translate-x-1/2 origin-top
             transition-all duration-1000
             ${lineInView ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"}`}

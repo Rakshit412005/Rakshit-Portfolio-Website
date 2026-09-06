@@ -31,73 +31,61 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative mt-16">
-      {/* Top gradient divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-500/40 to-transparent" />
+    <footer className="relative mt-20 border-t border-white/[0.06] bg-[#02000e]">
+      {/* Top ambient glow */}
+      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[600px] h-32 bg-purple-600/10 blur-[80px] pointer-events-none" />
 
-      {/* Subtle ambient glow above footer */}
-      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-96 h-32
-        bg-purple-600/8 blur-[60px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col items-center text-center space-y-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
 
           {/* Brand */}
-          <button
-            onClick={() => handleScroll("about")}
-            className="group text-xl font-bold tracking-tight
-              hover:text-purple-300 transition-colors section-title"
-            aria-label="Scroll to top"
-          >
-            <span className="text-purple-400 font-mono group-hover:text-purple-300 transition-colors">&lt;</span>
-            <span className="text-white">Rakshit</span>
-            <span className="text-purple-400 font-mono mx-0.5">/</span>
-            <span className="text-white">Kumar</span>
-            <span className="text-purple-400 font-mono group-hover:text-purple-300 transition-colors">&gt;</span>
-          </button>
+          <div className="flex flex-col items-center md:items-start space-y-1">
+            <button
+              onClick={() => handleScroll("about")}
+              className="group text-xl font-bold tracking-tight hover:text-purple-300 transition-colors section-title"
+              aria-label="Scroll to top"
+            >
+              <span className="text-cyan-400 font-mono group-hover:text-cyan-300 transition-colors">&lt;</span>
+              <span className="text-white font-display">Rakshit</span>
+              <span className="text-purple-400 font-mono mx-0.5">/</span>
+              <span className="text-white font-display">Kumar</span>
+              <span className="text-cyan-400 font-mono group-hover:text-cyan-300 transition-colors">&gt;</span>
+            </button>
+            <p className="font-mono text-[11px] text-slate-500">
+              {"// Systems, Edge-AI & Full-Stack Engineer"}
+            </p>
+          </div>
 
-          {/* Nav */}
-          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-slate-500">
+          {/* Quick Nav Links */}
+          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-mono text-slate-400">
             {navLinks.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleScroll(item.id)}
-                className="hover:text-purple-400 transition-colors
-                  focus:outline-none focus-visible:underline"
+                className="hover:text-purple-300 transition-colors focus:outline-none focus-visible:underline"
               >
                 {item.name}
               </button>
             ))}
           </nav>
 
-          {/* Socials */}
-          <div className="flex items-center gap-2.5">
-            {socialLinks.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={item.name}
-                className="w-9 h-9 rounded-full
-                  bg-white/[0.04] border border-white/[0.08]
-                  hover:border-purple-500/50 hover:bg-purple-600/20
-                  text-slate-400 hover:text-white
-                  flex items-center justify-center
-                  transition-all duration-200"
-              >
-                {item.icon}
-              </a>
-            ))}
-          </div>
-
-          {/* Copyright */}
-          <div className="space-y-1">
-            <p className="text-[11px] text-slate-500">
-              Designed &amp; Built by{" "}
-              <span className="text-purple-400 font-medium">Rakshit Kumar</span>
-            </p>
-            <p className="text-[11px] text-slate-600">
+          {/* Social Icons & Copyright */}
+          <div className="flex flex-col items-center md:items-end space-y-2">
+            <div className="flex items-center gap-2">
+              {socialLinks.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={item.name}
+                  className="w-8 h-8 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-purple-500/50 hover:bg-purple-600/20 text-slate-400 hover:text-white flex items-center justify-center transition-all duration-200"
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
+            <p className="text-[11px] font-mono text-slate-600">
               © {new Date().getFullYear()} · React · Tailwind CSS · Vite
             </p>
           </div>
