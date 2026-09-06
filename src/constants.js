@@ -276,7 +276,7 @@ export const education = [
     img: SrmLogo,
     school: "SRMIST University, Chennai",
     date: "Aug 2023 - May 2027",
-    grade: "9.1 (CGPA till 5th sem)",
+    grade: "9.20 (CGPA till 6th sem)",
     desc: "I am pursuing my Bachelor's degree in Computer Science (B.tech) from SRM Institute of Science and Technology, Chennai. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development, Database Management Systems and Machine Learning, I gained practical insights into the world of software development. My time at SRMIST University allowed me to work on projects that applied theoretical concepts to real-world problems.",
     degree: "Bachelor of Technology - BTech (Computer Science Engineering)",
   },
