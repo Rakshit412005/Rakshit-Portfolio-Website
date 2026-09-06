@@ -164,60 +164,63 @@ const About = () => {
           </div>
         </div>
 
-        {/* ── Right Column: High-Impact Prominent Profile with Dual Orbital Halo ── */}
+        {/* ── Right Column: High-Impact Prominent Profile with Layered Aperture Depth ── */}
         <div className="animate-fade-in delay-300 w-full lg:w-[43%] flex justify-center lg:justify-end">
           <div className="relative group">
 
-            {/* Ambient Deep Atmospheric Aura */}
-            <div className="absolute -inset-10 sm:-inset-14
-              bg-gradient-to-tr from-purple-600/30 via-indigo-600/20 to-cyan-400/25
-              rounded-full blur-3xl opacity-75 group-hover:opacity-100
-              animate-pulse-halo transition-opacity duration-700 -z-20 pointer-events-none" />
+            {/* Layer 1: Ambient Backlight Bloom (Soft integrated depth) */}
+            <div className="absolute -inset-8 sm:-inset-12
+              bg-gradient-to-tr from-purple-600/25 via-indigo-600/15 to-cyan-400/20
+              rounded-full blur-2xl opacity-60 group-hover:opacity-85
+              transition-opacity duration-700 -z-20 pointer-events-none" />
 
-            {/* Outer Slow-Spinning Conic Gradient Orbital Halo */}
-            <div className="absolute -inset-4 sm:-inset-5 rounded-full
-              bg-[conic-gradient(from_0deg,#a855f7,#06b6d4,#6366f1,#c084fc,#a855f7)]
-              opacity-75 blur-md animate-spin-slow group-hover:opacity-100
+            {/* Layer 2: Precision Outer Conic Orbital Ring */}
+            <div className="absolute -inset-3 sm:-inset-3.5 rounded-full
+              bg-[conic-gradient(from_0deg,#9333ea,#06b6d4,#6366f1,#c084fc,#9333ea)]
+              opacity-65 blur-[3px] animate-spin-slow group-hover:opacity-90
               transition-opacity duration-500 -z-10" />
 
-            {/* Secondary Counter-Rotating Subtle Cyan/Purple Tech Ring */}
-            <div className="absolute -inset-2 rounded-full
-              border border-cyan-400/40 border-dashed animate-spin-reverse-slow
+            {/* Layer 3: Counter-Rotating Secondary Cyan Tech Ring */}
+            <div className="absolute -inset-1.5 rounded-full
+              border border-cyan-400/30 border-dashed animate-spin-reverse-slow
               pointer-events-none -z-5" />
 
-            {/* Prominent Profile Frame with 3D Parallax Tilt */}
+            {/* Layer 4: Aperture Frame with 3D Parallax Tilt */}
             <Tilt
-              className="w-72 h-72 sm:w-84 sm:h-84 md:w-[360px] md:h-[360px] lg:w-[390px] lg:h-[390px] xl:w-[420px] xl:h-[420px]
-                rounded-full p-[4px]
-                bg-gradient-to-b from-white/30 via-purple-500/30 to-cyan-500/20
+              className="w-72 h-72 sm:w-[320px] sm:h-[320px] md:w-[360px] md:h-[360px] lg:w-[400px] lg:h-[400px] xl:w-[430px] xl:h-[430px]
+                rounded-full p-[3px]
+                bg-gradient-to-b from-white/25 via-purple-500/25 to-cyan-500/20
                 shadow-2xl shadow-purple-950/80
                 relative cursor-pointer"
-              tiltMaxAngleX={10}
-              tiltMaxAngleY={10}
-              perspective={1100}
-              scale={1.03}
-              transitionSpeed={900}
+              tiltMaxAngleX={8}
+              tiltMaxAngleY={8}
+              perspective={1200}
+              scale={1.02}
+              transitionSpeed={1000}
               gyroscope={false}
             >
-              <div className="w-full h-full rounded-full overflow-hidden bg-[#0a071e] relative">
+              {/* Inner Bezel and Image Container */}
+              <div className="w-full h-full rounded-full overflow-hidden bg-[#0a071e] relative shadow-[inset_0_0_24px_rgba(0,0,0,0.85)]">
                 <img
                   src={profileImage}
                   alt="Rakshit Kumar - AI & Full-Stack Engineer"
-                  className="w-full h-full object-cover rounded-full filter contrast-[1.03] brightness-[1.02] transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover rounded-full filter contrast-[1.02] brightness-[1.02] transition-transform duration-700 group-hover:scale-105"
                   loading="eager"
                 />
-                {/* Subtle glass reflection overlay */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/[0.04] to-purple-400/[0.08] pointer-events-none" />
+                {/* Physical glass reflection overlay */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/[0.03] to-purple-400/[0.06] pointer-events-none" />
+                {/* Inner perimeter rim shadow */}
+                <div className="absolute inset-0 rounded-full border border-white/10 pointer-events-none" />
               </div>
 
-              {/* Floating Technical Badge on Profile */}
+              {/* Technical Telemetry Badge on Profile */}
               <div className="absolute -bottom-2 right-4 sm:right-8
                 bg-[#070518]/95 border border-purple-500/40
-                rounded-full px-3.5 py-1.5 shadow-xl shadow-black/80
+                rounded-full px-3.5 py-1.5 shadow-2xl shadow-black/90
                 flex items-center gap-2 backdrop-blur-xl">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                 <span className="text-[11px] font-mono font-medium text-slate-200">
-                  AI &bull; EDGE &bull; WEB
+                  AI &bull; EDGE &bull; FULLSTACK
                 </span>
               </div>
             </Tilt>

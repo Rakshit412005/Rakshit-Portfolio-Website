@@ -23,6 +23,45 @@ function useInView(threshold = 0.08) {
   return [ref, inView];
 }
 
+// Subsystem telemetry data for all 5 projects
+const projectMetadata = {
+  0: {
+    code: "01 // FLAGSHIP ARCHITECTURE",
+    highlight: "OPTIMIZED: O(N+1) \u2192 O(2) Gemini API calls per interview",
+    domain: "ai-interviewer-chi-six.vercel.app",
+    statusText: "Live Production",
+    isFlagship: true,
+  },
+  1: {
+    code: "02 // AI_FINANCE_ML",
+    highlight: "BENCHMARK: 5 ML Models (RMSE, MAE, R\u00B2) & 20+ Engineered Features",
+    domain: "ai-stock-price-predictor.streamlit.app",
+    statusText: "Streamlit Cloud",
+    isFlagship: false,
+  },
+  2: {
+    code: "03 // REALTIME_ENGINE",
+    highlight: "REAL-TIME: Bidirectional Socket.IO & FEN State Synchronization",
+    domain: "chess-game-mwu9.onrender.com",
+    statusText: "Live Deployed",
+    isFlagship: false,
+  },
+  3: {
+    code: "04 // DISCOVERY_ENGINE",
+    highlight: "RECOMMENDER: Content Filtering across Genres & Trending Criteria",
+    domain: "movies-zone-eight.vercel.app",
+    statusText: "Vercel Deployed",
+    isFlagship: false,
+  },
+  4: {
+    code: "05 // RESERVATION_PLATFORM",
+    highlight: "MERN PLATFORM: Dynamic Availability Verification & Table Booking",
+    domain: "github.com/restaurant-reservation",
+    statusText: "Full-Stack System",
+    isFlagship: false,
+  },
+};
+
 const SectionHeader = () => {
   const [ref, inView] = useInView(0.2);
   return (
@@ -41,118 +80,142 @@ const SectionHeader = () => {
       </h2>
       <div className="w-24 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mb-4" />
       <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-        Production-grade AI platforms, real-time distributed applications, and machine learning
+        Production AI platforms, real-time distributed applications, and machine learning
         systems built with architectural efficiency.
       </p>
     </div>
   );
 };
 
-// ── Flagship Showcase Card (Project 01: AI Interviewer) ──
-const FlagshipCard = ({ project, onOpen }) => {
-  const [ref, inView] = useInView(0.08);
+// ── Uniform Horizontal Product Showcase Card ──
+const HorizontalProductCard = ({ project, index, onOpen }) => {
+  const [ref, inView] = useInView(0.06);
+  const meta = projectMetadata[project.id] || {
+    code: `0${index + 1} // SYSTEM`,
+    highlight: "Engineered Full-Stack Architecture",
+    domain: "production-system",
+    statusText: "Deployed",
+    isFlagship: false,
+  };
+
+  const isLiveDemo = project.webapp && !project.webapp.includes("github.com");
 
   return (
     <div
       ref={ref}
       onClick={() => onOpen(project)}
-      className={`w-full tech-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10
-        border border-purple-500/30 hover:border-purple-400/50
-        shadow-2xl shadow-purple-950/40 hover:shadow-purple-900/30
+      className={`w-full tech-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-9
+        border ${
+          meta.isFlagship
+            ? "border-purple-500/35 hover:border-purple-400/55 shadow-purple-950/40"
+            : "border-white/[0.08] hover:border-purple-500/40 shadow-black/50"
+        }
+        shadow-2xl hover:shadow-purple-950/25
         transition-all duration-500 cursor-pointer overflow-hidden relative group
-        ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      style={{ transitionDelay: `${index * 80}ms` }}
     >
-      {/* Top accent beam */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500 via-cyan-400 to-purple-500" />
+      {/* Top Hairline Accent */}
+      <div
+        className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${
+          meta.isFlagship
+            ? "from-purple-500 via-cyan-400 to-purple-500"
+            : "from-transparent via-purple-500/50 to-transparent group-hover:via-cyan-400/60"
+        }`}
+      />
 
-      {/* Ambient background glow */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-600/15 rounded-full blur-[100px] pointer-events-none -z-10 group-hover:bg-purple-600/25 transition-colors" />
+      {/* Grid Layout: Visual Frame (5 cols) + Information (7 cols) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-        {/* Left Column: Visual Product Frame (5 cols on lg) */}
-        <div className="lg:col-span-6 relative">
-          {/* Mock Window Frame */}
-          <div className="rounded-2xl overflow-hidden border border-white/[0.12] bg-slate-950 shadow-2xl relative group/img">
-            {/* Window header */}
-            <div className="px-4 py-2.5 bg-slate-900/90 border-b border-white/[0.08] flex items-center justify-between">
+        {/* ── Left Column: Viewport Frame ── */}
+        <div className="lg:col-span-5 relative">
+          <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.12] bg-slate-950 shadow-2xl relative group/img">
+            {/* Window control bar */}
+            <div className="px-3.5 py-2 bg-slate-900/90 border-b border-white/[0.08] flex items-center justify-between">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-                <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                <span className="w-2 h-2 rounded-full bg-red-500/70" />
+                <span className="w-2 h-2 rounded-full bg-yellow-500/70" />
+                <span className="w-2 h-2 rounded-full bg-green-500/70" />
               </div>
-              <span className="font-mono text-[10px] text-slate-400 truncate max-w-[200px]">
-                ai-interviewer-chi-six.vercel.app
+              <span className="font-mono text-[10px] text-slate-400 truncate max-w-[210px]">
+                {meta.domain}
               </span>
-              <span className="w-2.5" />
+              <span className="w-2" />
             </div>
 
-            {/* Image Preview */}
-            <div className="aspect-[16/10] overflow-hidden relative">
+            {/* Viewport Image */}
+            <div className="aspect-[16/10] overflow-hidden relative bg-[#09061c]">
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-40 group-hover:opacity-10 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-40 group-hover:opacity-10 transition-opacity" />
             </div>
           </div>
         </div>
 
-        {/* Right Column: Architecture & Product Details (6 cols on lg) */}
-        <div className="lg:col-span-6 flex flex-col justify-between">
+        {/* ── Right Column: Information, Specs & Actions ── */}
+        <div className="lg:col-span-7 flex flex-col justify-between">
           <div>
-            {/* Header Telemetry Badge */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-4">
-              <span className="font-mono text-xs font-semibold tracking-wider text-purple-300 bg-purple-950/60 border border-purple-500/40 px-3 py-1 rounded-full">
-                01 // FLAGSHIP ARCHITECTURE
+            {/* Telemetry Header Badge */}
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <span
+                className={`font-mono text-xs font-semibold tracking-wider px-3 py-0.5 rounded-full border ${
+                  meta.isFlagship
+                    ? "text-purple-300 bg-purple-950/60 border-purple-500/40"
+                    : "text-slate-300 bg-white/[0.04] border-white/10"
+                }`}
+              >
+                {meta.code}
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-950/50 border border-emerald-500/30 text-emerald-300">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                Live Deployed
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-950/40 border border-emerald-500/30 text-emerald-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span>{meta.statusText}</span>
               </span>
             </div>
 
-            {/* Title */}
-            <h3 className="section-title text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 group-hover:text-purple-200 transition-colors">
+            {/* Project Title */}
+            <h3 className="section-title text-2xl sm:text-3xl font-bold text-white mb-2 group-hover:text-purple-200 transition-colors">
               {project.title}
             </h3>
 
-            {/* Key Optimization Highlight Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-purple-900/30 border border-purple-500/30 mb-4 text-xs sm:text-sm font-medium text-purple-200">
-              <span className="text-cyan-400 font-mono font-bold">OPTIMIZED:</span>
-              <span>O(N+1) &rarr; O(2) Gemini API calls per interview</span>
+            {/* Architectural Highlight Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-purple-950/40 border border-purple-500/30 mb-3.5 text-xs sm:text-sm font-medium text-purple-200 max-w-full">
+              <span className="text-cyan-400 font-mono font-bold shrink-0">KEY:</span>
+              <span className="truncate">{meta.highlight}</span>
             </div>
 
-            {/* Description Highlights */}
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 line-clamp-3">
+            {/* Description Narrative */}
+            <p className="text-slate-300/85 text-xs sm:text-sm leading-relaxed mb-5 line-clamp-3">
               {Array.isArray(project.description) ? project.description[0] : project.description}
             </p>
 
-            {/* Stack Tags */}
-            <div className="flex flex-wrap gap-1.5 mb-8">
+            {/* Tech Stack Chips */}
+            <div className="flex flex-wrap gap-1.5 mb-6">
               {project.tags.slice(0, 7).map((tag, i) => (
                 <span
                   key={i}
-                  className="bg-white/[0.04] text-slate-300 border border-white/[0.08] text-xs font-mono px-2.5 py-1 rounded-lg"
+                  className="bg-white/[0.04] text-slate-300 border border-white/[0.08] text-[11px] sm:text-xs font-mono px-2.5 py-0.5 rounded-md"
                 >
                   {tag}
                 </span>
               ))}
               {project.tags.length > 7 && (
-                <span className="text-xs font-mono text-purple-400/80 px-2 py-1">
+                <span className="text-xs font-mono text-purple-400/80 px-2 py-0.5">
                   +{project.tags.length - 7} more
                 </span>
               )}
             </div>
           </div>
 
-          {/* Action Row */}
+          {/* Action Button Row */}
           <div
-            className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/[0.08]"
+            className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/[0.07]"
             onClick={(e) => e.stopPropagation()}
           >
-            {project.webapp && (
+            {isLiveDemo && (
               <a
                 href={project.webapp}
                 target="_blank"
@@ -162,9 +225,10 @@ const FlagshipCard = ({ project, onOpen }) => {
                   shadow-lg shadow-purple-900/40 hover:shadow-purple-700/50 transition-all shimmer-on-hover"
               >
                 <span>Launch Live System</span>
-                <FaExternalLinkAlt size={12} />
+                <FaExternalLinkAlt size={11} />
               </a>
             )}
+
             {project.github && (
               <a
                 href={project.github}
@@ -177,116 +241,16 @@ const FlagshipCard = ({ project, onOpen }) => {
                 <span>Source Code</span>
               </a>
             )}
+
             <button
               onClick={() => onOpen(project)}
-              className="ml-auto text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1 transition-colors"
+              className="ml-auto text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1 transition-colors py-2"
             >
               System Specs &rarr;
             </button>
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
 
-// ── Standard Modular Showcase Card (Projects 02–05) ──
-const ShowcaseCard = ({ project, index, onOpen }) => {
-  const [ref, inView] = useInView(0.08);
-  const num = String(index + 1).padStart(2, "0");
-
-  return (
-    <div
-      ref={ref}
-      onClick={() => onOpen(project)}
-      className={`tech-card rounded-2xl overflow-hidden cursor-pointer
-        border border-white/[0.08] hover:border-purple-500/40
-        shadow-xl shadow-black/40 hover:shadow-purple-900/20
-        transition-all duration-300 flex flex-col justify-between group
-        ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-      style={{ transitionDelay: `${index * 80}ms` }}
-    >
-      {/* Top hairline */}
-      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-purple-500/50 to-transparent group-hover:via-cyan-400/60 transition-all" />
-
-      <div>
-        {/* Preview Frame */}
-        <div className="relative aspect-video w-full overflow-hidden bg-slate-950/80 border-b border-white/[0.06]">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a081e] via-transparent to-transparent opacity-60" />
-
-          {/* Code badge */}
-          <div className="absolute top-3 left-3 z-10">
-            <span className="font-mono text-[10px] font-semibold text-slate-300 bg-slate-950/80 border border-white/10 px-2.5 py-0.5 rounded-md backdrop-blur-md">
-              {num} {"// SYSTEM"}
-            </span>
-          </div>
-        </div>
-
-        {/* Card Content */}
-        <div className="p-5 sm:p-6">
-          <h3 className="section-title text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
-            {project.title}
-          </h3>
-
-          <p className="text-slate-400 text-xs sm:text-sm mb-4 leading-relaxed line-clamp-2">
-            {Array.isArray(project.description) ? project.description[0] : project.description}
-          </p>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-1.5">
-            {project.tags.slice(0, 4).map((tag, i) => (
-              <span
-                key={i}
-                className="bg-white/[0.04] text-slate-300 border border-white/[0.07] text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded-md"
-              >
-                {tag}
-              </span>
-            ))}
-            {project.tags.length > 4 && (
-              <span className="text-[10px] font-mono text-purple-400/80 px-1 py-0.5">
-                +{project.tags.length - 4}
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Footer / Actions */}
-      <div className="px-5 sm:px-6 pb-4 pt-3 flex items-center justify-between border-t border-white/[0.06]">
-        <span className="text-xs font-mono text-cyan-400/90 group-hover:text-cyan-300 transition-colors">
-          View Blueprint &rarr;
-        </span>
-
-        <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`GitHub: ${project.title}`}
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
-            >
-              <FaGithub size={15} />
-            </a>
-          )}
-          {project.webapp && (
-            <a
-              href={project.webapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Live: ${project.title}`}
-              className="p-2 rounded-lg text-slate-400 hover:text-cyan-300 hover:bg-cyan-950/40 transition-colors"
-            >
-              <FaExternalLinkAlt size={12} />
-            </a>
-          )}
-        </div>
       </div>
     </div>
   );
@@ -319,25 +283,15 @@ const Work = () => {
       id="work"
       className="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 right-10 w-[600px] h-[500px] bg-purple-600/7 rounded-full blur-[150px] pointer-events-none -z-10" />
-
       <SectionHeader />
 
-      {/* Flagship Hero Showcase */}
-      {projects.length > 0 && (
-        <div className="mb-8">
-          <FlagshipCard project={projects[0]} onOpen={handleOpenModal} />
-        </div>
-      )}
-
-      {/* Grid of Modular Showcases (Projects 02–05) */}
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
-        {projects.slice(1).map((project, index) => (
-          <ShowcaseCard
+      {/* ── Product Catalog: All 5 Horizontal Product Showcases ── */}
+      <div className="space-y-8 sm:space-y-10">
+        {projects.map((project, index) => (
+          <HorizontalProductCard
             key={project.id}
             project={project}
-            index={index + 1}
+            index={index}
             onOpen={handleOpenModal}
           />
         ))}
@@ -438,7 +392,7 @@ const Work = () => {
                   <span>Inspect Code Repository</span>
                 </a>
               )}
-              {selectedProject.webapp && (
+              {selectedProject.webapp && !selectedProject.webapp.includes("github.com") && (
                 <a
                   href={selectedProject.webapp}
                   target="_blank"

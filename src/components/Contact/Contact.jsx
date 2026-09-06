@@ -168,15 +168,15 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="user_name"
-                  className="block font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1.5"
+                  className="block text-xs font-medium text-slate-300 mb-1.5"
                 >
-                  Your Name // Identifier
+                  Full Name
                 </label>
                 <input
                   id="user_name"
                   type="text"
                   name="user_name"
-                  placeholder="e.g. Alex Mercer"
+                  placeholder="Your name"
                   required
                   className={inputClass}
                 />
@@ -185,15 +185,15 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="user_email"
-                  className="block font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1.5"
+                  className="block text-xs font-medium text-slate-300 mb-1.5"
                 >
-                  Email Address // Reply Route
+                  Email Address
                 </label>
                 <input
                   id="user_email"
                   type="email"
                   name="user_email"
-                  placeholder="alex@company.com"
+                  placeholder="you@example.com"
                   required
                   className={inputClass}
                 />
@@ -202,15 +202,15 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1.5"
+                  className="block text-xs font-medium text-slate-300 mb-1.5"
                 >
-                  Subject // Context
+                  Subject
                 </label>
                 <input
                   id="subject"
                   type="text"
                   name="subject"
-                  placeholder="SDE / AI Role or Technical Discussion"
+                  placeholder="What would you like to discuss?"
                   required
                   className={inputClass}
                 />
@@ -219,14 +219,14 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1.5"
+                  className="block text-xs font-medium text-slate-300 mb-1.5"
                 >
-                  Message Payload
+                  Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Details of the opportunity, project scope, or questions..."
+                  placeholder="Tell me about the opportunity, project, or idea..."
                   rows="4"
                   required
                   className={`${inputClass} resize-y`}
