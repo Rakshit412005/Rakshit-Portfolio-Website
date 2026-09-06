@@ -458,3 +458,68 @@ export const projects = [
   //   webapp: "https://removeyourbg.netlify.app/",
   // },
 ];
+
+export const achievements = [
+  {
+    id: "01",
+    tag: "01 // RECOGNITION",
+    category: "RESEARCH & DEVELOPMENT",
+    title: "Award of Excellence",
+    subtitle: "IIIT Allahabad • Research & Development",
+    description:
+      "Award of Excellence during IIIT Allahabad internship, honored for outstanding contribution in building an edge-AI task driven object detection system with Raspberry Pi 5, AI HAT+ (13 TOPS) and LLM integration.",
+    metrics: [
+      { value: "13 TOPS", label: "AI HAT+ NPU Compute", highlight: true },
+      { value: "Edge-AI", label: "Task-Driven Vision", highlight: false },
+    ],
+    technicalHighlights: [
+      "Raspberry Pi 5",
+      "AI HAT+ (13 TOPS)",
+      "Edge-AI Detection",
+      "LLM Integration",
+    ],
+    accent: "amber",
+  },
+  {
+    id: "02",
+    tag: "02 // DSA",
+    category: "DATA STRUCTURES & ALGORITHMS",
+    title: "200+ Problems",
+    subtitle: "LeetCode & GeeksforGeeks",
+    description:
+      "Solved 200+ DSA problems across LeetCode and GeeksforGeeks, with a LeetCode rating of 1530.",
+    metrics: [
+      { value: "200+", label: "Problems Solved", highlight: true },
+      { value: "1530", label: "LeetCode Rating", highlight: true },
+    ],
+    technicalHighlights: [
+      "LeetCode Rating: 1530",
+      "GeeksforGeeks",
+      "Data Structures & Algorithms",
+    ],
+    link: {
+      url: "https://codolio.com/profile/rakshit07",
+      label: "Verified Coding Profile",
+    },
+    accent: "cyan",
+  },
+  {
+    id: "03",
+    tag: "03 // RANKING",
+    category: "EMPLOYABILITY BENCHMARK",
+    title: "138th Rank",
+    subtitle: "College Employability Assessment",
+    description:
+      "Secured 138th (Top 2.5%) Employability ranking in the College Employability Assessment among 5,448 students, evaluated across six tests.",
+    metrics: [
+      { value: "138th", label: "Institutional Rank", highlight: true },
+      { value: "Top 2.5%", label: "Of 5,448 Students", highlight: true },
+    ],
+    technicalHighlights: [
+      "Top 2.5% Percentile",
+      "5,448 Students",
+      "6 Evaluated Tests",
+    ],
+    accent: "purple",
+  },
+];

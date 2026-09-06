@@ -19,8 +19,9 @@ const Footer = () => {
     { name: "Skills",     id: "skills" },
     { name: "Experience", id: "experience" },
     { name: "Projects",   id: "work" },
-    { name: "Education",  id: "education" },
-    { name: "Contact",    id: "contact" },
+    { name: "Education",    id: "education" },
+    { name: "Achievements", id: "achievements" },
+    { name: "Contact",      id: "contact" },
   ];
 
   const socialLinks = [

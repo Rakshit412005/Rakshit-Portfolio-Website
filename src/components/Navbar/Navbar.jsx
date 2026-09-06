@@ -19,7 +19,7 @@ const Navbar = () => {
 
   // Scroll-spy using IntersectionObserver to track current active section
   useEffect(() => {
-    const sectionIds = ["about", "skills", "experience", "work", "education", "contact"];
+    const sectionIds = ["about", "skills", "experience", "work", "education", "achievements", "contact"];
     const observerOptions = {
       root: null,
       rootMargin: "-20% 0px -60% 0px",
@@ -85,6 +85,7 @@ const Navbar = () => {
     { id: "experience", label: "Experience" },
     { id: "work", label: "Projects" },
     { id: "education", label: "Education" },
+    { id: "achievements", label: "Achievements" },
     { id: "contact", label: "Contact" },
   ];
 
