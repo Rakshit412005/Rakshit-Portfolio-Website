@@ -1,102 +1,176 @@
+/* eslint-disable react/prop-types */
+import { useEffect, useRef, useState } from "react";
+import { experiences } from "../../constants";
 
-import React from "react";
-import { experiences } from "../../constants"; // Import your data
+// Intersection observer hook
+function useInView(threshold = 0.15) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); observer.disconnect(); } },
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return [ref, inView];
+}
+
+const SectionHeader = () => {
+  const [ref, inView] = useInView(0.2);
+  return (
+    <div ref={ref} className={`text-center mb-16 sm:mb-20 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+      <p className="section-label mb-3">Career Journey</p>
+      <h2 className="section-title text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+        Work <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">Experience</span>
+      </h2>
+      <div className="w-24 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mx-auto mb-4" />
+      <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+        A timeline of my professional roles, research internships, and technical leadership.
+      </p>
+    </div>
+  );
+};
+
+const ExperienceCard = ({ experience, index }) => {
+  const [ref, inView] = useInView(0.12);
+  const isEven = index % 2 === 0;
+  const num = String(index + 1).padStart(2, "0");
+
+  return (
+    <div
+      ref={ref}
+      className="relative flex items-start md:justify-between"
+      style={{ transitionDelay: `${index * 120}ms` }}
+    >
+      {/* Timeline Center Node */}
+      <div className={`absolute left-6 md:left-1/2 -translate-x-1/2 z-10
+        transition-all duration-700 ${inView ? "opacity-100 scale-100" : "opacity-0 scale-50"}`}
+        style={{ transitionDelay: `${index * 120 + 100}ms` }}
+      >
+        {/* Pulsing ring */}
+        <div className="absolute inset-0 rounded-full bg-purple-500/25 animate-glow-ring" />
+        <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-full
+          bg-gradient-to-br from-[#0c0824] to-[#13093a]
+          border-2 border-purple-500/60
+          shadow-lg shadow-purple-950
+          flex items-center justify-center">
+          <img
+            src={experience.img}
+            alt={experience.company}
+            className="w-6 h-6 sm:w-7 sm:h-7 object-contain rounded-full"
+          />
+        </div>
+      </div>
+
+      {/* Card Container */}
+      <div
+        className={`w-full ml-16 md:ml-0 md:w-[calc(50%-3rem)]
+          ${isEven ? "md:mr-auto" : "md:ml-auto"}
+          transition-all duration-700
+          ${inView
+            ? "opacity-100 translate-x-0 translate-y-0"
+            : isEven
+              ? "opacity-0 -translate-x-6 translate-y-4"
+              : "opacity-0 translate-x-6 translate-y-4"
+          }`}
+        style={{ transitionDelay: `${index * 120}ms` }}
+      >
+        <div className="relative bg-slate-900/55 backdrop-blur-xl
+          border border-white/[0.08] hover:border-purple-500/40
+          rounded-2xl p-5 sm:p-6
+          shadow-xl shadow-black/30
+          transition-all duration-300
+          hover:shadow-purple-900/20 hover:-translate-y-1
+          shimmer-on-hover overflow-hidden">
+
+          {/* Subtle left accent line */}
+          <div className="absolute left-0 top-4 bottom-4 w-0.5 rounded-full
+            bg-gradient-to-b from-transparent via-purple-500/60 to-transparent" />
+
+          {/* Number badge */}
+          <span className="absolute top-4 right-4 text-xs font-mono text-purple-500/50 select-none">
+            {num}
+          </span>
+
+          {/* Header */}
+          <div className="flex flex-col gap-1 mb-3 pr-8">
+            <h3 className="section-title text-lg sm:text-xl font-bold text-white leading-tight">
+              {experience.role}
+            </h3>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-sm font-medium text-purple-300">
+                {experience.company}
+              </span>
+              <span className="text-xs font-mono text-purple-300/70
+                bg-purple-950/50 border border-purple-800/40
+                px-2.5 py-0.5 rounded-full">
+                {experience.date}
+              </span>
+            </div>
+          </div>
+
+          {/* Bullet Points */}
+          <ul className="list-none space-y-2 mb-5">
+            {experience.desc.map((point, i) => (
+              <li key={i} className="flex gap-2.5 text-xs sm:text-sm text-slate-300/85 leading-relaxed">
+                <span className="mt-1.5 w-1 h-1 shrink-0 rounded-full bg-purple-400" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* Skills */}
+          <div className="pt-4 border-t border-white/[0.06]">
+            <p className="text-[10px] uppercase tracking-widest font-semibold text-slate-500 mb-2">
+              Stack &amp; Skills
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {experience.skills.map((skill, i) => (
+                <span
+                  key={i}
+                  className="bg-purple-950/40 text-purple-200/90
+                    border border-purple-800/25
+                    px-2 py-0.5 text-[10px] sm:text-xs font-medium rounded-md"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Experience = () => {
+  const [lineRef, lineInView] = useInView(0.05);
+
   return (
     <section
       id="experience"
-      className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom-2"
+      className="py-20 lg:py-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative"
     >
-      {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">EXPERIENCE</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          A collection of my work experience and the roles I have taken in
-          various organizations.
-        </p>
-      </div>
+      <SectionHeader />
 
-      {/* Experience Timeline */}
       <div className="relative">
-        {/* Vertical line */}
-        <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 sm:-translate-x-0 w-1 bg-white h-full"></div>
+        {/* Vertical Timeline Line with animated draw-in */}
+        <div
+          ref={lineRef}
+          className={`absolute left-6 md:left-1/2 top-0 bottom-0 w-px
+            bg-gradient-to-b from-purple-500/5 via-purple-500/50 to-purple-500/5
+            -translate-x-1/2 origin-top
+            transition-all duration-1000
+            ${lineInView ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"}`}
+        />
 
-        {/* Experience Entries */}
-        {experiences.map((experience, index) => (
-          <div
-            key={experience.id}
-            className={`flex flex-col sm:flex-row items-center mb-16 ${
-              index % 2 === 0 ? "sm:justify-end" : "sm:justify-start"
-            }`}
-          >
-            {/* Timeline Circle */}
-            {/* <div className="absolute sm:left-1/2 left-0 transform -translate-x-1/2 bg-gray-400 border-4 border-[#8245ec] w-12 h-12 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-10">
-              <img
-                src={experience.img}
-                alt={experience.company}
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div> */}
-
-            {/* Content Section */}
-            <div
-              className={`w-full sm:max-w-md p-4 sm:p-8 rounded-2xl shadow-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] ${
-                index % 2 === 0 ? "sm:ml-0" : "sm:mr-0"
-              } sm:ml-44 sm:mr-44 ml-8 transform transition-transform duration-300 hover:scale-105`}
-            >
-              {/* Flex container for image and text */}
-              <div className="flex items-center space-x-6">
-                {/* Company Logo/Image */}
-                <div className="w-16 h-16 bg-white rounded-md overflow-hidden">
-                  <img
-                    src={experience.img}
-                    alt={experience.company}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Role, Company Name, and Date */}
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                      {experience.role}
-                    </h3>
-                    <h4 className="text-md sm:text-sm text-gray-300">
-                      {experience.company}
-                    </h4>
-                  </div>
-                  {/* Date at the bottom */}
-                  <p className="text-sm text-gray-500 mt-2">
-                    {experience.date}
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-4">
-                <ul className="list-disc pl-5 space-y-2 text-gray-400">
-                  {experience.desc.map((point, index) => (
-                    <li key={index}>{point}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-4">
-                <h5 className="font-medium text-white">Skills:</h5>
-                <ul className="flex flex-wrap mt-2">
-                  {experience.skills.map((skill, index) => (
-                    <li
-                      key={index}
-                      className="bg-[#8245ec] text-gray-300 px-4 py-1 text-xs sm:text-sm rounded-lg mr-2 mb-2 border border-gray-400"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        ))}
+        <div className="space-y-14 sm:space-y-20">
+          {experiences.map((experience, index) => (
+            <ExperienceCard key={experience.id} experience={experience} index={index} />
+          ))}
+        </div>
       </div>
     </section>
   );
